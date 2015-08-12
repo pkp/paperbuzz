@@ -8,12 +8,18 @@
  * ALM plugin settings
  *
  *}
-<div id="almPlugin">
+<script type="text/javascript">
+	$(function() {ldelim}
+		// Attach the form handler.
+		$('#almSettingsForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+	{rdelim});
+</script>
+
 <div id="description">{translate key="plugins.generic.alm.description"}</div>
 
 <div class="separator">&nbsp;</div>
 
-<form class="pkp_form" method="post" action="{plugin_url path="settings"}">
+<form id="almSettingsForm" class="pkp_form" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT op="plugin" category="generic" plugin=$pluginName verb="save"}">
 {include file="common/formErrors.tpl"}
 
 {fbvFormArea id="almSettingsFormArea"}
@@ -32,10 +38,7 @@
 
 {translate key="plugins.generic.alm.settings.ipAddress"  ip=$smarty.server.SERVER_ADDR}
 
-<br/>
-<br/>
-<input type="submit" name="save" class="button defaultButton" style="width:auto" value="{translate key="common.save"}"/> <input type="button" class="button" style="width:auto" value="{translate key="common.cancel"}" onclick="history.go(-1)"/>
-</form>
-
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
-</div>
+
+{fbvFormButtons id="usageStatsSettingsFormSubmit" submitText="common.save" hideCancel=true}
+</form>

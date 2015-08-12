@@ -31,7 +31,7 @@ class SettingsForm extends Form {
 	 */
 	function SettingsForm(&$plugin, $journalId) {
 		$this->journalId = $journalId;
-		$this->plugin =& $plugin;
+		$this->plugin = $plugin;
 
 		parent::Form($plugin->getTemplatePath() . 'settingsForm.tpl');
 		$this->addCheck(new FormValidatorPost($this));
@@ -42,7 +42,7 @@ class SettingsForm extends Form {
 	 */
 	function initData() {
 		$journalId = $this->journalId;
-		$plugin =& $this->plugin;
+		$plugin = $this->plugin;
 
 		$this->setData('apiKey', $plugin->getSetting($journalId, 'apiKey'));
 		$this->setData('depositArticles', $plugin->getSetting(CONTEXT_ID_NONE, 'depositArticles'));
@@ -55,12 +55,21 @@ class SettingsForm extends Form {
 	function readInputData() {
 		$this->readUserVars(array('apiKey', 'depositArticles', 'depositUrl'));
 	}
+	
+	/**
+	 * @see Form::fetch()
+	 */
+	function fetch($request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('pluginName', $this->plugin->getName());
+		return parent::fetch($request);
+	}
 
 	/**
 	 * Save settings.
 	 */
 	function execute() {
-		$plugin =& $this->plugin;
+		$plugin = $this->plugin;
 		$journalId = $this->journalId;
 
 		$plugin->updateSetting($journalId, 'apiKey', $this->getData('apiKey'));

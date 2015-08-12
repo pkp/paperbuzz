@@ -104,36 +104,36 @@ class AlmPlugin extends GenericPlugin {
 		$request = $this->getRequest();
 
 		$router = $request->getRouter();
-		$context = $router->getContext();
+		$context = $router->getContext($request);
+
+		$this->import('SettingsForm');
+		$form = new SettingsForm($this, $context->getId());
+
+		$templateMgr =& TemplateManager::getManager();
+		$templateMgr->register_function('plugin_url', array(&$this, 'smartyPluginUrl'));
 
 		switch ($verb) {
 			case 'settings':
-				$templateMgr =& TemplateManager::getManager();
-				$templateMgr->register_function('plugin_url', array(&$this, 'smartyPluginUrl'));
-
-				$this->import('SettingsForm');
-				$form = new SettingsForm($this, $context->getId());
-
-				if (Request::getUserVar('save')) {
-					$form->readInputData();
-					if ($form->validate()) {
-						$form->execute();
-						$message = NOTIFICATION_TYPE_SUCCESS;
-						$messageParams = array('contents' => __('plugins.generic.alm.settings.saved'));
-						return false;
-					} else {
-						$pluginModalContent = $form->fetch($request);
-					}
+				$form->initData();
+				$pluginModalContent = $form->fetch($request);
+	
+				return true;
+			case 'save':
+				$form->readInputData();
+				if ($form->validate()) {
+					$form->execute();
+					$message = NOTIFICATION_TYPE_SUCCESS;
+					$messageParams = array('contents' => __('plugins.generic.alm.settings.saved'));
+					return false;
 				} else {
-					$form->initData();
 					$pluginModalContent = $form->fetch($request);
 				}
-				return true;
 			default:
 				// Unknown management verb
 				assert(false);
-			return false;
 		}
+		
+		return false;
 	}
 
 	/**
@@ -145,7 +145,7 @@ class AlmPlugin extends GenericPlugin {
 		if ($this->getEnabled()) {
 			$templateMgr =& $params[0];
 			$template = $params[1];
-			if ($template == 'article/article.tpl') {
+			if ($template == 'frontend/pages/article.tpl') {
 				$additionalHeadData = $templateMgr->get_template_vars('additionalHeadData');
 				$baseImportPath = Request::getBaseUrl() . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
 				$scriptImportString = '<script language="javascript" type="text/javascript" src="';
