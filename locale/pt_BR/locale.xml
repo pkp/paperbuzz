@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * @file plugins/generic/alm/locale/pt_BR/locale.xml
+  *
+  * Copyright (c) 2013-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * ALM plugin localization strings
+  -->
+
+<locale name="pt_BR" full_name="Português (Brasil)">
+	<message key="plugins.generic.alm.displayName">Plugin ALM</message>
+	<message key="plugins.generic.alm.description">Plugin para mostrar Métricas a Nível de Artigo. Para usar os serviços ALM, é necessário o uso de DOIs.</message>
+	<message key="plugins.generic.alm.loading">Carregando Métricas ...</message>
+
+	<message key="plugins.generic.alm.settings">Configurações</message>
+</locale>

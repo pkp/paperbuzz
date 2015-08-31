@@ -1,0 +1,3 @@
+[submodule "paperbuzzviz"]
+	path = paperbuzzviz
+	url = https://github.com/jalperin/paperbuzzviz.git
