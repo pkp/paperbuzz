@@ -11,7 +11,7 @@
   * ALM plugin localization strings
   -->
 
-<locale name="zh_CN" full_name="China">
+<locale name="zh_CN" full_name="简体中文">
 
 	<message key="plugins.generic.alm.displayName">ALM 插件</message>
 	<message key="plugins.generic.alm.description">在文章说平密钥中显示插件。为使用ALM服务，您需要DOIs。这项要求在未来有可能会放松。</message>

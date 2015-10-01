@@ -8,11 +8,11 @@
   * Copyright (c) 2003-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * ALM plugin localization strings for the ru_RU (Russian) locale.
+  * ALM plugin localization strings for the ru_RU (Русский) locale.
   * With updates from Pavel Pisklakov (revising translation). 
   -->
 
-<locale name="ru_RU" full_name="Russian">
+<locale name="ru_RU" full_name="Русский">
 
 	<message key="plugins.generic.alm.displayName">Плагин «ALM»</message>
 	<message key="plugins.generic.alm.description">Этот плагин отображает метрики уровня статьи (Article Level Metrics). Для использования сервиса ALM, вам необходимо использовать DOI. В будущем, это требование может быть ослаблено.</message>
