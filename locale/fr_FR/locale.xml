@@ -11,7 +11,7 @@
   * ALM plugin localization strings
   -->
 
-<locale name="fr_FR" full_name="Français">
+<locale name="fr_FR" full_name="Français (France)">
 
 	<message key="plugins.generic.alm.displayName">PLugiciel ALM</message>
 	<message key="plugins.generic.alm.description">Plugiciel qui affiche des métriques au niveau de l'article. Pour utiliser le service ALM, vous devez avoir des DOIs. Cette condition risque de disparaître dans le futur.</message>
