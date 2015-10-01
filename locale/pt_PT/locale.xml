@@ -11,6 +11,6 @@
   * ALM plugin localization strings
   -->
 
-<locale name="pt_PT" full_name="Português">
+<locale name="pt_PT" full_name="Português (Portugal)">
 	<message key="plugins.generic.alm.senderTask.warning.noJournal">O plugin ALM não está activado em nenhuma revista. Não foi enviada nenhuma informação sobre artigo.</message>
 </locale>
