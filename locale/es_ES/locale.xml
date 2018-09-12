@@ -13,8 +13,8 @@
   -->
 
 <locale name="es_ES" full_name="Español (España)">
-	<message key="plugins.generic.alm.displayName">Complemento ALM</message>
-	<message key="plugins.generic.alm.description">Complemento para mostrar la Métrica a Nivel de Artículo (ALM, Article Level Metrics). Para usar el servicio ALM, necesitas disponer de DOIs. Este requisito podría relajarse en un futuro.</message>
+	<message key="plugins.generic.alm.displayName">Módulo ALM</message>
+	<message key="plugins.generic.alm.description">Módulo para mostrar la Métrica a Nivel de Artículo (ALM, Article Level Metrics). Para usar el servicio ALM, necesitas disponer de DOIs. Este requisito podría relajarse en un futuro.</message>
 	<message key="plugins.generic.alm.title">Métricas de artículo</message>
 	<message key="plugins.generic.alm.loading">Cargando métricas ...</message>
 
@@ -48,5 +48,5 @@
 	<message key="plugins.generic.alm.senderTask.name">Información ALM del remitente del artículo</message>
 	
 	<message key="plugins.generic.alm.settings.depositArticles">¿Depositar automáticamente la información del artículo? (No lo seleccione si deposita la información directamente en un servidor ALM usando el prefijo DOI.)</message>
-	<message key="plugins.generic.alm.senderTask.warning.noJournal">El complemento ALM no está habilitado en ninguna revista. No se ha enviado ninguna información.</message>
+	<message key="plugins.generic.alm.senderTask.warning.noJournal">El módulo ALM no está habilitado en ninguna revista. No se ha enviado ninguna información.</message>
 </locale>
