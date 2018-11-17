@@ -14,7 +14,7 @@
 <locale name="en_US" full_name="U.S. English">
 	<message key="plugins.generic.alm.displayName">ALM Plugin</message>
 	<message key="plugins.generic.alm.description">Plugin to display in usage metrics on abstract page. Journals that do not assign DOIs will only display download metrics.</message>
-	<message key="plugins.generic.alm.visualizations">Paperbuzz Visualizations</message>
+	<message key="plugins.generic.alm.metrics">Metrics</message>
 	<message key="plugins.generic.alm.loading">Metrics Loading ...</message>
 
 	<message key="plugins.generic.alm.settings">Settings</message>

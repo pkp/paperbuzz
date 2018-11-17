@@ -11,7 +11,7 @@
 
 <div class="item downloads_chart">
 	<h3 class="label">
-		{translate key="plugins.generic.alm.visualizations"}
+		{translate key="plugins.generic.alm.metrics"}
 	</h3>
 	<div id="paperbuzz"><div id="loading">{translate key="plugins.generic.alm.loading"}</div></div>
 	<script type="text/javascript">
@@ -38,5 +38,4 @@
 			paperbuzzviz.initViz();
 		{rdelim}
 	</script>
-	<div id="built-with"><p>Built with <a href="http://d3js.org/">d3.js</a></p></div>
 </div>
