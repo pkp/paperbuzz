@@ -173,7 +173,7 @@ class AlmPlugin extends GenericPlugin {
 
 		$paperbuzzJsonDecoded = $this->_getPaperbuzzJsonDecoded();
 		$downloadJsonDecoded = array();
-		if ($this->getSetting($context->getId(), 'showDownloads')) {
+		if (!$this->getSetting($context->getId(), 'hideDownloads')) {
 			$downloadJsonDecoded = $this->_getDownloadsJsonDecoded();
 		}
 
@@ -184,11 +184,12 @@ class AlmPlugin extends GenericPlugin {
 
 			$datePublished = $this->_article->getDatePublished();
 			if (empty($datePublished)) {
-				$issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
-				$issue = $issueDao->getById($this->_article->getIssueId());
-				$datePublished = $issue->getDatePublished();
+				// let PaperbuzzViz figure out the published date from the JSON response
+				$datePublishedShort = '';
+			} else {
+				$datePublishedShort = date('[Y, m, d]', strtotime($datePublished));
 			}
-			$datePublishedShort = date('[Y, m, d]', strtotime($datePublished));
+
 			$smarty->assign('datePublished', $datePublishedShort);
 			$showMini = $this->getSetting($context->getId(), 'showMini') ? 'true' : 'false';
 			$smarty->assign('showMini', $showMini);

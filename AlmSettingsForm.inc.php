@@ -93,7 +93,7 @@ class AlmSettingsForm extends Form {
 	function getFormFields() {
 		return array(
 			'apiEmail' => 'string',
-			'showDownloads' => 'bool',
+			'hideDownloads' => 'bool',
 			'showMini' => 'bool'
 		);
 	}

@@ -24,14 +24,14 @@
 	{/fbvFormArea}
 	
 	{fbvFormArea id="almGraphSettingsArea"}
-		{fbvFormSection label="plugins.generic.alm.settings.graph" description="plugins.generic.alm.settings.graph.description" inline=true size=$fbvStyles.size.MEDIUM required=true}
+		{fbvFormSection label="common.options" description="plugins.generic.alm.settings.graph.description" inline=true size=$fbvStyles.size.MEDIUM required=true}
 			{fbvElement type="select" id="showMini" from=$showMiniOptions selected=$showMini|default:false size=$fbvStyles.size.MEDIUM translate=false inline=true}
 		{/fbvFormSection}
 	{/fbvFormArea}
 
 	{fbvFormArea id="almDownloadsSettingsArea"}
 		{fbvFormSection list="true" label="plugins.generic.alm.settings.downloads" inline=true size=$fbvStyles.size.MEDIUM required=true}
-			{fbvElement type="checkbox" id="showDownloads" label="plugins.generic.alm.settings.showDownloads" checked=$showDownloads|compare:true}
+			{fbvElement type="checkbox" id="hideDownloads" label="plugins.generic.alm.settings.hideDownloads" checked=$hideDownloads|compare:true}
 		{/fbvFormSection}
 	{/fbvFormArea}
 	

@@ -19,11 +19,11 @@
 			var options = {ldelim}
 				paperbuzzStatsJson: JSON.parse('{$allStatsJson|escape:"javascript"}'),
 				minItemsToShowGraph: {ldelim}
-					minEventsForYearly: 1,
-					minEventsForMonthly: 1,
-					minEventsForDaily: 1,
-					minYearsForYearly: 1,
-					minMonthsForMonthly: 1,
+					minEventsForYearly: 10,
+					minEventsForMonthly: 10,
+					minEventsForDaily: 6,
+					minYearsForYearly: 3,
+					minMonthsForMonthly: 2,
 					minDaysForDaily: 1 //first 30 days only
 				{rdelim},
 				graphheight: 150,

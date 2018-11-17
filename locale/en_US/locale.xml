@@ -13,18 +13,17 @@
 
 <locale name="en_US" full_name="U.S. English">
 	<message key="plugins.generic.alm.displayName">ALM Plugin</message>
-	<message key="plugins.generic.alm.description">Plugin to display in Article Level Metrics. To use the ALM service, you need to have use DOIs.</message>
+	<message key="plugins.generic.alm.description">Plugin to display in usage metrics on abstract page. Journals that do not assign DOIs will only display download metrics.</message>
 	<message key="plugins.generic.alm.visualizations">Paperbuzz Visualizations</message>
 	<message key="plugins.generic.alm.loading">Metrics Loading ...</message>
 
 	<message key="plugins.generic.alm.settings">Settings</message>
 	<message key="plugins.generic.alm.settings.apiEmail">E-mail</message>
-	<message key="plugins.generic.alm.settings.apiEmail.description">To be able to access the Paperbuzz article level metrics, you need an e-amil adress.</message>
+	<message key="plugins.generic.alm.settings.apiEmail.description">You must provide an email address to use the Paperbuzz service.</message>
 	<message key="plugins.generic.alm.settings.apiEmail.required">E-mail is required.</message>
-	<message key="plugins.generic.alm.settings.graph">Graph</message>
-	<message key="plugins.generic.alm.settings.graph.description">Choose the visualization option with graph or the mini version without the graph.</message>
-	<message key="plugins.generic.alm.settings.showGraph">Show graph</message>
-	<message key="plugins.generic.alm.settings.showMini">Show mini</message>
+	<message key="plugins.generic.alm.settings.graph.description">Display graphs showing timeline of usage (bigger) or only the counts (smaller)</message>
+	<message key="plugins.generic.alm.settings.showGraph">Show graphs</message>
+	<message key="plugins.generic.alm.settings.showMini">Show compact</message>
 	<message key="plugins.generic.alm.settings.downloads">Downloads</message>
-	<message key="plugins.generic.alm.settings.showDownloads">Consider OJS file download metrics in the visualization</message>
+	<message key="plugins.generic.alm.settings.hideDownloads">Hide article downloads (only display metrics from Paperbuzz).</message>
 </locale>
