@@ -30,7 +30,9 @@
 				graphwidth: 300,
 				showTitle: false,
 				showMini: {$showMini|escape:"javascript"},
+				{if $datePublished && !empty($datePublished)}
 				published_date: {$datePublished|escape:"javascript"},
+				{/if}
 			{rdelim}
 		
 			var paperbuzzviz = undefined;

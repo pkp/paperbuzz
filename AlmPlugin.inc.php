@@ -177,16 +177,12 @@ class AlmPlugin extends GenericPlugin {
 			$downloadJsonDecoded = $this->_getDownloadsJsonDecoded();
 		}
 
-		/* TO-DO: error handling in Paperbuzz */
 		if (!empty($downloadJsonDecoded) || !empty($paperbuzzJsonDecoded)) {
 			$allStatsJson = $this->_buildRequiredJson($paperbuzzJsonDecoded, $downloadJsonDecoded);
 			$smarty->assign('allStatsJson', $allStatsJson);
 
 			$datePublished = $this->_article->getDatePublished();
-			if (empty($datePublished)) {
-				// let PaperbuzzViz figure out the published date from the JSON response
-				$datePublishedShort = '';
-			} else {
+			if (!empty($datePublished)) {
 				$datePublishedShort = date('[Y, m, d]', strtotime($datePublished));
 			}
 
@@ -236,10 +232,10 @@ class AlmPlugin extends GenericPlugin {
 		);
 
 		// Call the web service (URL defined at top of this file)
-		//$resultJson = $this->_callWebService(PAPERBUZZ_API_URL . 'doi/' . $this->_article->getStoredPubId('doi'), $searchParams);
-		// For teting use the following line instead of the line above and do not forget to clear the cache
+		$resultJson = $this->_callWebService(PAPERBUZZ_API_URL . 'doi/' . $this->_article->getStoredPubId('doi'), $searchParams);
+		// For teting use one of the following two lines instead of the line above and do not forget to clear the cache
 		//$resultJson = $this->_callWebService(PAPERBUZZ_API_URL . 'doi/' . '10.1787/180d80ad-en', $searchParams);
-		$resultJson = $this->_callWebService(PAPERBUZZ_API_URL . 'doi/' . '10.1371/journal.pmed.0020124', $searchParams);
+		//$resultJson = $this->_callWebService(PAPERBUZZ_API_URL . 'doi/' . '10.1371/journal.pmed.0020124', $searchParams);
 
 		$paperbuzzStatsJsonDecoded = array();
 		if ($resultJson) {
