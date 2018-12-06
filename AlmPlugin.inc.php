@@ -225,10 +225,10 @@ class AlmPlugin extends GenericPlugin {
 		);
 
 		// Call the web service (URL defined at top of this file)
-		$resultJson = $this->_callWebService(PAPERBUZZ_API_URL . 'doi/' . $this->_article->getStoredPubId('doi'), $searchParams);
+		//$resultJson = $this->_callWebService(PAPERBUZZ_API_URL . 'doi/' . $this->_article->getStoredPubId('doi'), $searchParams);
 		// For teting use one of the following two lines instead of the line above and do not forget to clear the cache
 		//$resultJson = $this->_callWebService(PAPERBUZZ_API_URL . 'doi/' . '10.1787/180d80ad-en', $searchParams);
-		//$resultJson = $this->_callWebService(PAPERBUZZ_API_URL . 'doi/' . '10.1371/journal.pmed.0020124', $searchParams);
+		$resultJson = $this->_callWebService(PAPERBUZZ_API_URL . 'doi/' . '10.1371/journal.pmed.0020124', $searchParams);
 
 		$paperbuzzStatsJsonDecoded = array();
 		if ($resultJson) {
