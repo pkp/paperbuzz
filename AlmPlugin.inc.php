@@ -148,9 +148,9 @@ class AlmPlugin extends GenericPlugin {
 			$baseImportPath = $request->getBaseUrl() . '/' . $this->getPluginPath() . '/' .'paperbuzzviz' . '/';
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->addJavaScript('d3','https://d3js.org/d3.v4.min.js', array('context' => 'frontend-article-view'));
-			$templateMgr->addJavaScript('d3-tip', $baseImportPath . 'd3-tip/index.js', array('context' => 'frontend-article-view'));
+			$templateMgr->addJavaScript('d3-tip', 'https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js', array('context' => 'frontend-article-view'));
 			$templateMgr->addJavaScript('paperbuzzvizJS', $baseImportPath . 'paperbuzzviz.js', array('context' => 'frontend-article-view'));
-			$templateMgr->addStyleSheet('paperbuzzvizCSS', $baseImportPath . 'css/paperbuzzviz.css', array('context' => 'frontend-article-view'));
+			$templateMgr->addStyleSheet('paperbuzzvizCSS', $baseImportPath . 'assets/css/paperbuzzviz.css', array('context' => 'frontend-article-view'));
 		}
 	}
 
@@ -183,7 +183,7 @@ class AlmPlugin extends GenericPlugin {
 
 			$datePublished = $this->_article->getDatePublished();
 			if (!empty($datePublished)) {
-				$datePublishedShort = date('[Y, m, d]', strtotime($datePublished));
+				$datePublishedShort = date('[Y, n, j]', strtotime($datePublished));
 			}
 
 			$smarty->assign('datePublished', $datePublishedShort);
@@ -470,6 +470,7 @@ class AlmPlugin extends GenericPlugin {
 		$eventPdf['events_count_by_day'] = $this->_getDownloadStatsByTime($byDay, 'day', STATISTICS_FILE_TYPE_PDF);
 		$eventPdf['events_count_by_month'] = $this->_getDownloadStatsByTime($byMonth, 'month', STATISTICS_FILE_TYPE_PDF);
 		$eventPdf['events_count_by_year'] = $this->_getDownloadStatsByTime($byYear, 'year', STATISTICS_FILE_TYPE_PDF);
+		$eventPdf['source']['display_name'] = __('plugins.generic.alm.sourceName.pdf');
 		$eventPdf['source_id'] = 'pdf';
 
 		$eventHtml = array();
@@ -478,6 +479,7 @@ class AlmPlugin extends GenericPlugin {
 		$eventHtml['events_count_by_day'] = $this->_getDownloadStatsByTime($byDay, 'day', STATISTICS_FILE_TYPE_HTML);
 		$eventHtml['events_count_by_month'] = $this->_getDownloadStatsByTime($byMonth, 'month', STATISTICS_FILE_TYPE_HTML);
 		$eventHtml['events_count_by_year'] = $this->_getDownloadStatsByTime($byYear, 'year', STATISTICS_FILE_TYPE_HTML);
+		$eventHtml['source']['display_name'] = __('plugins.generic.alm.sourceName.html');
 		$eventHtml['source_id'] = 'html';
 
 		$eventOther = array();
@@ -486,6 +488,7 @@ class AlmPlugin extends GenericPlugin {
 		$eventOther['events_count_by_day'] = $this->_getDownloadStatsByTime($byDay, 'day', STATISTICS_FILE_TYPE_OTHER);
 		$eventOther['events_count_by_month'] = $this->_getDownloadStatsByTime($byMonth, 'month', STATISTICS_FILE_TYPE_OTHER);
 		$eventOther['events_count_by_year'] = $this->_getDownloadStatsByTime($byYear, 'year', STATISTICS_FILE_TYPE_OTHER);
+		$eventOther['source']['display_name'] = __('plugins.generic.alm.sourceName.other');
 		$eventOther['source_id'] = 'other';
 
 		$response = array($eventPdf, $eventHtml, $eventOther);
