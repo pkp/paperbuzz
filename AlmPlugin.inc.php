@@ -128,13 +128,6 @@ class AlmPlugin extends GenericPlugin {
 	}
 
 	/**
-	 * @copydoc Plugin::getTemplatePath($inCore)
-	 */
-	public function getTemplatePath($inCore = false) {
-		return $this->getTemplateResourceName() . ':templates/';
-	}
-
-	/**
 	 * Template manager hook callback.
 	 * Add JavaScript and CSS required for the visualization.
 	 * @param $hookName string
@@ -164,7 +157,7 @@ class AlmPlugin extends GenericPlugin {
 		$smarty =& $params[1];
 		$output =& $params[2];
 
-		$article =& $smarty->get_template_vars('article');
+		$article = $smarty->getTemplateVars('article');
 		assert(is_a($article, 'PublishedArticle'));
 		$this->_article = $article;
 
@@ -189,7 +182,7 @@ class AlmPlugin extends GenericPlugin {
 			$smarty->assign('datePublished', $datePublishedShort);
 			$showMini = $this->getSetting($context->getId(), 'showMini') ? 'true' : 'false';
 			$smarty->assign('showMini', $showMini);
-			$metricsHTML = $smarty->fetch($this->getTemplatePath() . 'output.tpl');
+			$metricsHTML = $smarty->fetch($this->getTemplateResource('output.tpl'));
 			$output .= $metricsHTML;
 		}
 

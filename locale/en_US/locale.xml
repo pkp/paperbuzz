@@ -26,7 +26,7 @@
 	<message key="plugins.generic.alm.settings.showMini">Show compact</message>
 	<message key="plugins.generic.alm.settings.downloads">Downloads</message>
 	<message key="plugins.generic.alm.settings.hideDownloads">Hide article downloads (only display metrics from Paperbuzz).</message>
-	<message key="plugins.generic.alm.sourceName.pdf">PDF downloads</message>
-	<message key="plugins.generic.alm.sourceName.html">HTML downloads</message>
-	<message key="plugins.generic.alm.sourceName.other">Other file tpye downloads</message>
+	<message key="plugins.generic.alm.sourceName.pdf">PDF views</message>
+	<message key="plugins.generic.alm.sourceName.html">HTML views</message>
+	<message key="plugins.generic.alm.sourceName.other">Other format views</message>
 </locale>

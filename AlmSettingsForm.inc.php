@@ -27,7 +27,7 @@ class AlmSettingsForm extends Form {
 	 */
 	function __construct($plugin) {
 		$this->plugin = $plugin;
-		parent::__construct($plugin->getTemplatePath() . 'settingsForm.tpl');
+		parent::__construct($plugin->getTemplateResource('settingsForm.tpl'));
 		$this->addCheck(new FormValidator($this, 'apiEmail', FORM_VALIDATOR_REQUIRED_VALUE, 'plugins.generic.alm.settings.apiEmail.required'));
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
