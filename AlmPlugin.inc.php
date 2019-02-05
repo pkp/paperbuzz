@@ -457,34 +457,43 @@ class AlmPlugin extends GenericPlugin {
 	 * @return array ready for JSON encoding
 	 */
 	function _buildDownloadStatsJsonDecoded($totalHtml, $totalPdf, $totalOther, $byDay, $byMonth, $byYear) {
+		$response = array();
 		$eventPdf = array();
-		$eventPdf['events'] = null;
-		$eventPdf['events_count'] = $totalPdf;
-		$eventPdf['events_count_by_day'] = $this->_getDownloadStatsByTime($byDay, 'day', STATISTICS_FILE_TYPE_PDF);
-		$eventPdf['events_count_by_month'] = $this->_getDownloadStatsByTime($byMonth, 'month', STATISTICS_FILE_TYPE_PDF);
-		$eventPdf['events_count_by_year'] = $this->_getDownloadStatsByTime($byYear, 'year', STATISTICS_FILE_TYPE_PDF);
-		$eventPdf['source']['display_name'] = __('plugins.generic.alm.sourceName.pdf');
-		$eventPdf['source_id'] = 'pdf';
+		if ($totalPdf > 0) {
+			$eventPdf['events'] = null;
+			$eventPdf['events_count'] = $totalPdf;
+			$eventPdf['events_count_by_day'] = $this->_getDownloadStatsByTime($byDay, 'day', STATISTICS_FILE_TYPE_PDF);
+			$eventPdf['events_count_by_month'] = $this->_getDownloadStatsByTime($byMonth, 'month', STATISTICS_FILE_TYPE_PDF);
+			$eventPdf['events_count_by_year'] = $this->_getDownloadStatsByTime($byYear, 'year', STATISTICS_FILE_TYPE_PDF);
+			$eventPdf['source']['display_name'] = __('plugins.generic.alm.sourceName.pdf');
+			$eventPdf['source_id'] = 'pdf';
+			$response[] = $eventPdf;
+		}
 
 		$eventHtml = array();
-		$eventHtml['events'] = null;
-		$eventHtml['events_count'] = $totalHtml;
-		$eventHtml['events_count_by_day'] = $this->_getDownloadStatsByTime($byDay, 'day', STATISTICS_FILE_TYPE_HTML);
-		$eventHtml['events_count_by_month'] = $this->_getDownloadStatsByTime($byMonth, 'month', STATISTICS_FILE_TYPE_HTML);
-		$eventHtml['events_count_by_year'] = $this->_getDownloadStatsByTime($byYear, 'year', STATISTICS_FILE_TYPE_HTML);
-		$eventHtml['source']['display_name'] = __('plugins.generic.alm.sourceName.html');
-		$eventHtml['source_id'] = 'html';
+		if ($totalHtml > 0) {
+			$eventHtml['events'] = null;
+			$eventHtml['events_count'] = $totalHtml;
+			$eventHtml['events_count_by_day'] = $this->_getDownloadStatsByTime($byDay, 'day', STATISTICS_FILE_TYPE_HTML);
+			$eventHtml['events_count_by_month'] = $this->_getDownloadStatsByTime($byMonth, 'month', STATISTICS_FILE_TYPE_HTML);
+			$eventHtml['events_count_by_year'] = $this->_getDownloadStatsByTime($byYear, 'year', STATISTICS_FILE_TYPE_HTML);
+			$eventHtml['source']['display_name'] = __('plugins.generic.alm.sourceName.html');
+			$eventHtml['source_id'] = 'html';
+			$response[] = $eventHtml;
+		}
 
 		$eventOther = array();
-		$eventOther['events'] = null;
-		$eventOther['events_count'] = $totalOther;
-		$eventOther['events_count_by_day'] = $this->_getDownloadStatsByTime($byDay, 'day', STATISTICS_FILE_TYPE_OTHER);
-		$eventOther['events_count_by_month'] = $this->_getDownloadStatsByTime($byMonth, 'month', STATISTICS_FILE_TYPE_OTHER);
-		$eventOther['events_count_by_year'] = $this->_getDownloadStatsByTime($byYear, 'year', STATISTICS_FILE_TYPE_OTHER);
-		$eventOther['source']['display_name'] = __('plugins.generic.alm.sourceName.other');
-		$eventOther['source_id'] = 'other';
+		if ($totalOther > 0) {
+			$eventOther['events'] = null;
+			$eventOther['events_count'] = $totalOther;
+			$eventOther['events_count_by_day'] = $this->_getDownloadStatsByTime($byDay, 'day', STATISTICS_FILE_TYPE_OTHER);
+			$eventOther['events_count_by_month'] = $this->_getDownloadStatsByTime($byMonth, 'month', STATISTICS_FILE_TYPE_OTHER);
+			$eventOther['events_count_by_year'] = $this->_getDownloadStatsByTime($byYear, 'year', STATISTICS_FILE_TYPE_OTHER);
+			$eventOther['source']['display_name'] = __('plugins.generic.alm.sourceName.other');
+			$eventOther['source_id'] = 'other';
+			$response[] = $eventOther;
+		}
 
-		$response = array($eventPdf, $eventHtml, $eventOther);
 		return $response;
 	}
 
