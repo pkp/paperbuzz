@@ -1,34 +1,34 @@
 <?php
 
 /**
- * @file plugins/generic/alm/AlmSettingsForm.inc.php
+ * @file plugins/generic/paperbuzz/PaperbuzzSettingsForm.inc.php
  *
  * Copyright (c) 2013-2018 Simon Fraser University
  * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AlmSettingsForm
- * @ingroup plugins_generic_alm
+ * @class PaperbuzzSettingsForm
+ * @ingroup plugins_generic_paperbuzz
  *
- * @brief Form for journal managers to modify ALM plugin settings
+ * @brief Form for journal managers to modify Paperbuzz plugin settings
  */
 
 
 import('lib.pkp.classes.form.Form');
 
-class AlmSettingsForm extends Form {
+class PaperbuzzSettingsForm extends Form {
 
-	/** @var $plugin AlmPlugin */
+	/** @var $plugin PaperbuzzPlugin */
 	var $plugin;
 
 	/**
 	 * Constructor
-	 * @param $plugin AlmPlugin
+	 * @param $plugin PaperbuzzPlugin
 	 */
 	function __construct($plugin) {
 		$this->plugin = $plugin;
 		parent::__construct($plugin->getTemplateResource('settingsForm.tpl'));
-		$this->addCheck(new FormValidator($this, 'apiEmail', FORM_VALIDATOR_REQUIRED_VALUE, 'plugins.generic.alm.settings.apiEmail.required'));
+		$this->addCheck(new FormValidator($this, 'apiEmail', FORM_VALIDATOR_REQUIRED_VALUE, 'plugins.generic.paperbuzz.settings.apiEmail.required'));
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 	}
@@ -63,8 +63,8 @@ class AlmSettingsForm extends Form {
 	function fetch($request) {
 		$plugin = $this->plugin;
 		$showMiniOptions = array(
-			false => __('plugins.generic.alm.settings.showGraph'),
-			true => __('plugins.generic.alm.settings.showMini'),
+			false => __('plugins.generic.paperbuzz.settings.showGraph'),
+			true => __('plugins.generic.paperbuzz.settings.showMini'),
 		);
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('pluginName', $plugin->getName());

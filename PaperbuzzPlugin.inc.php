@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @file plugins/generic/alm/AlmPlugin.inc.php
+ * @file plugins/generic/paperbuzz/PaperbuzzPlugin.inc.php
  *
  * Copyright (c) 2013-2018 Simon Fraser University
  * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AlmPlugin
- * @ingroup plugins_generic_alm
+ * @class PaperbuzzPlugin
+ * @ingroup plugins_generic_paperbuzz
  *
- * @brief Alm plugin class
+ * @brief Paperbuzz plugin class
  */
 
 import('lib.pkp.classes.plugins.GenericPlugin');
@@ -18,7 +18,7 @@ import('lib.pkp.classes.webservice.WebService');
 
 DEFINE('PAPERBUZZ_API_URL', 'https://api.paperbuzz.org/v0/');
 
-class AlmPlugin extends GenericPlugin {
+class PaperbuzzPlugin extends GenericPlugin {
 
 	/** @var $_paperbuzzCache FileCache */
 	var $_paperbuzzCache;
@@ -54,21 +54,21 @@ class AlmPlugin extends GenericPlugin {
 	 * @see LazyLoadPlugin::getName()
 	 */
 	function getName() {
-		return 'almplugin';
+		return 'PaperbuzzPlugin';
 	}
 
 	/**
 	 * @see PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
-		return __('plugins.generic.alm.displayName');
+		return __('plugins.generic.paperbuzz.displayName');
 	}
 
 	/**
 	 * @see PKPPlugin::getDescription()
 	 */
 	function getDescription() {
-		return __('plugins.generic.alm.description');
+		return __('plugins.generic.paperbuzz.description');
 	}
 
 	/**
@@ -112,8 +112,8 @@ class AlmPlugin extends GenericPlugin {
 	public function manage($args, $request) {
 		switch ($request->getUserVar('verb')) {
 			case 'settings':
-				$this->import('AlmSettingsForm');
-				$form = new AlmSettingsForm($this);
+				$this->import('PaperbuzzSettingsForm');
+				$form = new PaperbuzzSettingsForm($this);
 				if ($request->getUserVar('save')) {
 					$form->readInputData();
 					if ($form->validate()) {
@@ -199,7 +199,7 @@ class AlmPlugin extends GenericPlugin {
 	function _getPaperbuzzJsonDecoded() {
 		if (!isset($this->_paperbuzzCache)) {
 			$cacheManager = CacheManager::getManager();
-			$this->_paperbuzzCache = $cacheManager->getCache('alm-paperbuzz', $this->_article->getId(), array(&$this, '_paperbuzzCacheMiss'));
+			$this->_paperbuzzCache = $cacheManager->getCache('paperbuzz', $this->_article->getId(), array(&$this, '_paperbuzzCacheMiss'));
 		}
 		if (time() - $this->_paperbuzzCache->getCacheTime() > 60 * 60 * 24) {
 			// Cache is older than one day, erase it.
@@ -266,7 +266,7 @@ class AlmPlugin extends GenericPlugin {
 	function _getDownloadsJsonDecoded() {
 		if (!isset($this->_downloadsCache)) {
 			$cacheManager = CacheManager::getManager();
-			$this->_downloadsCache = $cacheManager->getCache('alm-downloads', $this->_article->getId(), array(&$this, '_downloadsCacheMiss'));
+			$this->_downloadsCache = $cacheManager->getCache('paperbuzz-downloads', $this->_article->getId(), array(&$this, '_downloadsCacheMiss'));
 		}
 		if (time() - $this->_downloadsCache->getCacheTime() > 60 * 60 * 24) {
 			// Cache is older than one day, erase it.
@@ -465,7 +465,7 @@ class AlmPlugin extends GenericPlugin {
 			$eventPdf['events_count_by_day'] = $this->_getDownloadStatsByTime($byDay, 'day', STATISTICS_FILE_TYPE_PDF);
 			$eventPdf['events_count_by_month'] = $this->_getDownloadStatsByTime($byMonth, 'month', STATISTICS_FILE_TYPE_PDF);
 			$eventPdf['events_count_by_year'] = $this->_getDownloadStatsByTime($byYear, 'year', STATISTICS_FILE_TYPE_PDF);
-			$eventPdf['source']['display_name'] = __('plugins.generic.alm.sourceName.pdf');
+			$eventPdf['source']['display_name'] = __('plugins.generic.paperbuzz.sourceName.pdf');
 			$eventPdf['source_id'] = 'pdf';
 			$response[] = $eventPdf;
 		}
@@ -477,7 +477,7 @@ class AlmPlugin extends GenericPlugin {
 			$eventHtml['events_count_by_day'] = $this->_getDownloadStatsByTime($byDay, 'day', STATISTICS_FILE_TYPE_HTML);
 			$eventHtml['events_count_by_month'] = $this->_getDownloadStatsByTime($byMonth, 'month', STATISTICS_FILE_TYPE_HTML);
 			$eventHtml['events_count_by_year'] = $this->_getDownloadStatsByTime($byYear, 'year', STATISTICS_FILE_TYPE_HTML);
-			$eventHtml['source']['display_name'] = __('plugins.generic.alm.sourceName.html');
+			$eventHtml['source']['display_name'] = __('plugins.generic.paperbuzz.sourceName.html');
 			$eventHtml['source_id'] = 'html';
 			$response[] = $eventHtml;
 		}
@@ -489,7 +489,7 @@ class AlmPlugin extends GenericPlugin {
 			$eventOther['events_count_by_day'] = $this->_getDownloadStatsByTime($byDay, 'day', STATISTICS_FILE_TYPE_OTHER);
 			$eventOther['events_count_by_month'] = $this->_getDownloadStatsByTime($byMonth, 'month', STATISTICS_FILE_TYPE_OTHER);
 			$eventOther['events_count_by_year'] = $this->_getDownloadStatsByTime($byYear, 'year', STATISTICS_FILE_TYPE_OTHER);
-			$eventOther['source']['display_name'] = __('plugins.generic.alm.sourceName.other');
+			$eventOther['source']['display_name'] = __('plugins.generic.paperbuzz.sourceName.other');
 			$eventOther['source_id'] = 'other';
 			$response[] = $eventOther;
 		}

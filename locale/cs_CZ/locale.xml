@@ -2,19 +2,19 @@
 <!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
 
 <!--
-  * @file plugins/generic/alm/locale/cs_CZ/locale.xml
+  * @file plugins/generic/paperbuzz/locale/cs_CZ/locale.xml
   *
   * Copyright (c) 2013-2018 Simon Fraser University
   * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * ALM plugin localization strings
+  * Paperbuzz plugin localization strings
   -->
 
 <locale name="cs_CZ" full_name="Čeština">
-	<message key="plugins.generic.alm.displayName">Plugin ALM</message>
-	<message key="plugins.generic.alm.description">Plugin na zobrazování ALM (Article Level Metrics). Při využívání ALM je třeba použávat DOI.</message>
-	<message key="plugins.generic.alm.loading">Metriky se nahrávají ...</message>
+	<message key="plugins.generic.paperbuzz.displayName">Plugin Paperbuzz</message>
+	<message key="plugins.generic.paperbuzz.description">Plugin na zobrazování Paperbuzz (Article Level Metrics). Při využívání Paperbuzz je třeba použávat DOI.</message>
+	<message key="plugins.generic.paperbuzz.loading">Metriky se nahrávají ...</message>
 
-	<message key="plugins.generic.alm.settings">Nastavení</message>
+	<message key="plugins.generic.paperbuzz.settings">Nastavení</message>
 </locale>

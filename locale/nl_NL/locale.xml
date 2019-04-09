@@ -2,19 +2,19 @@
 <!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
 
 <!--
-  * @file plugins/generic/alm/locale/nl_NL/locale.xml
+  * @file plugins/generic/paperbuzz/locale/nl_NL/locale.xml
   *
   * Copyright (c) 2013-2018 Simon Fraser University
   * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * ALM plugin localization strings
+  * Paperbuzz plugin localization strings
   -->
 
 <locale name="nl_NL" full_name="Nederlands">
-	<message key="plugins.generic.alm.displayName">ALM Plugin</message>
-	<message key="plugins.generic.alm.description">Plugin om te tonen in Article Level Metrics. Om de ALM service te gebruiken, moet u DOIs gebruiken.</message>
-	<message key="plugins.generic.alm.loading">Metrics worden geladen ...</message>
+	<message key="plugins.generic.paperbuzz.displayName">Paperbuzz Plugin</message>
+	<message key="plugins.generic.paperbuzz.description">Plugin om te tonen in Article Level Metrics. Om de Paperbuzz service te gebruiken, moet u DOIs gebruiken.</message>
+	<message key="plugins.generic.paperbuzz.loading">Metrics worden geladen ...</message>
 
-	<message key="plugins.generic.alm.settings">Instellingen</message>
+	<message key="plugins.generic.paperbuzz.settings">Instellingen</message>
 </locale>

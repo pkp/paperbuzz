@@ -2,31 +2,31 @@
 <!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
 
 <!--
-  * @file plugins/generic/alm/locale/en_US/locale.xml
+  * @file plugins/generic/paperbuzz/locale/en_US/locale.xml
   *
   * Copyright (c) 2013-2018 Simon Fraser University
   * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * ALM plugin localization strings
+  * Paperbuzz plugin localization strings
   -->
 
 <locale name="en_US" full_name="U.S. English">
-	<message key="plugins.generic.alm.displayName">ALM Plugin</message>
-	<message key="plugins.generic.alm.description">Plugin to display in usage metrics on abstract page. Journals that do not assign DOIs will only display download metrics.</message>
-	<message key="plugins.generic.alm.metrics">Metrics</message>
-	<message key="plugins.generic.alm.loading">Metrics Loading ...</message>
+	<message key="plugins.generic.paperbuzz.displayName">Paperbuzz Plugin</message>
+	<message key="plugins.generic.paperbuzz.description">Plugin to display in usage metrics on abstract page. Journals that do not assign DOIs will only display download metrics.</message>
+	<message key="plugins.generic.paperbuzz.metrics">Metrics</message>
+	<message key="plugins.generic.paperbuzz.loading">Metrics Loading ...</message>
 
-	<message key="plugins.generic.alm.settings">Settings</message>
-	<message key="plugins.generic.alm.settings.apiEmail">E-mail</message>
-	<message key="plugins.generic.alm.settings.apiEmail.description">You must provide an email address to use the Paperbuzz service.</message>
-	<message key="plugins.generic.alm.settings.apiEmail.required">E-mail is required.</message>
-	<message key="plugins.generic.alm.settings.graph.description">Display graphs showing timeline of usage (bigger) or only the counts (smaller)</message>
-	<message key="plugins.generic.alm.settings.showGraph">Show graphs</message>
-	<message key="plugins.generic.alm.settings.showMini">Show compact</message>
-	<message key="plugins.generic.alm.settings.downloads">Downloads</message>
-	<message key="plugins.generic.alm.settings.hideDownloads">Hide article downloads (only display metrics from Paperbuzz).</message>
-	<message key="plugins.generic.alm.sourceName.pdf">PDF views</message>
-	<message key="plugins.generic.alm.sourceName.html">HTML views</message>
-	<message key="plugins.generic.alm.sourceName.other">Other format views</message>
+	<message key="plugins.generic.paperbuzz.settings">Settings</message>
+	<message key="plugins.generic.paperbuzz.settings.apiEmail">E-mail</message>
+	<message key="plugins.generic.paperbuzz.settings.apiEmail.description">You must provide an email address to use the Paperbuzz service.</message>
+	<message key="plugins.generic.paperbuzz.settings.apiEmail.required">E-mail is required.</message>
+	<message key="plugins.generic.paperbuzz.settings.graph.description">Display graphs showing timeline of usage (bigger) or only the counts (smaller)</message>
+	<message key="plugins.generic.paperbuzz.settings.showGraph">Show graphs</message>
+	<message key="plugins.generic.paperbuzz.settings.showMini">Show compact</message>
+	<message key="plugins.generic.paperbuzz.settings.downloads">Downloads</message>
+	<message key="plugins.generic.paperbuzz.settings.hideDownloads">Hide article downloads (only display metrics from Paperbuzz).</message>
+	<message key="plugins.generic.paperbuzz.sourceName.pdf">PDF views</message>
+	<message key="plugins.generic.paperbuzz.sourceName.html">HTML views</message>
+	<message key="plugins.generic.paperbuzz.sourceName.other">Other format views</message>
 </locale>

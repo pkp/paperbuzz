@@ -1,19 +1,19 @@
 {**
- * plugins/generic/alm/templates/output.tpl
+ * plugins/generic/paperbuzz/templates/output.tpl
  *
  * Copyright (c) 2013-2018 Simon Fraser University
  * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * ALM visualization, embedded in the article view page
+ * Paperbuzz visualization, embedded in the article view page
  *
  *}
 
 <div class="item downloads_chart">
 	<h3 class="label">
-		{translate key="plugins.generic.alm.metrics"}
+		{translate key="plugins.generic.paperbuzz.metrics"}
 	</h3>
-	<div id="paperbuzz"><div id="loading">{translate key="plugins.generic.alm.loading"}</div></div>
+	<div id="paperbuzz"><div id="loading">{translate key="plugins.generic.paperbuzz.loading"}</div></div>
 	<script type="text/javascript">
 		window.onload = function () {ldelim}
 			var options = {ldelim}
@@ -34,7 +34,7 @@
 				published_date: {$datePublished|escape:"javascript"},
 				{/if}
 			{rdelim}
-		
+
 			var paperbuzzviz = undefined;
 			paperbuzzviz = new PaperbuzzViz(options);
 			paperbuzzviz.initViz();
