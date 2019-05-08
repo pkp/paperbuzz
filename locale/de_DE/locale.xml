@@ -12,9 +12,21 @@
   -->
 
 <locale name="de_DE" full_name="Deutsch (Deutschland)">
-	<message key="plugins.generic.paperbuzz.displayName">Paperbuzz-Plug-In</message>
-	<message key="plugins.generic.paperbuzz.description">Plug-In zur Anzeige von Article Level Metrics. Um den Paperbuzz-Dienst zu benutzen, müssen Sie DOI benutzen.</message>
+	<message key="plugins.generic.paperbuzz.displayName">Paperbuzz-Plugin</message>
+	<message key="plugins.generic.paperbuzz.description">Plugin zur Anzeige von Article Level Metrics. Um den Paperbuzz-Dienst zu benutzen, müssen Sie DOI benutzen.</message>
+	<message key="plugins.generic.paperbuzz.metrics">Metriken</message>
 	<message key="plugins.generic.paperbuzz.loading">Metriken werden geladen ...</message>
 
 	<message key="plugins.generic.paperbuzz.settings">Einstellungen</message>
+	<message key="plugins.generic.paperbuzz.settings.apiEmail">E-Mail</message>
+	<message key="plugins.generic.paperbuzz.settings.apiEmail.description">Sie müssen eine E-Mail-Adresse angeben, um den Paperbuzz-Dienst zu nutzen.</message>
+	<message key="plugins.generic.paperbuzz.settings.apiEmail.required">Angabe einer E-Mail-Adresse ist erforderlich.</message>
+	<message key="plugins.generic.paperbuzz.settings.graph.description">Diagramme anzeigen, die den Nutzungsverlauf (größer) oder nur die Nutzungszahlen (kleiner) anzeigen</message>
+	<message key="plugins.generic.paperbuzz.settings.showGraph">Diagramme anzeigen</message>
+	<message key="plugins.generic.paperbuzz.settings.showMini">Kompakte Anzeige</message>
+	<message key="plugins.generic.paperbuzz.settings.downloads">Downloads</message>
+	<message key="plugins.generic.paperbuzz.settings.hideDownloads">Artikel-Downloads verbergen (zeige nur Metriken von Paperbuzz).</message>
+	<message key="plugins.generic.paperbuzz.sourceName.pdf">PDF-Anzeigen</message>
+	<message key="plugins.generic.paperbuzz.sourceName.html">HTML-Anzeigen</message>
+	<message key="plugins.generic.paperbuzz.sourceName.other">Anzeigen anderer Formate</message>
 </locale>
