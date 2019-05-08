@@ -14,7 +14,19 @@
 <locale name="it_IT" full_name="Italiano">
 	<message key="plugins.generic.paperbuzz.displayName">Paperbuzz Plugin</message>
 	<message key="plugins.generic.paperbuzz.description">Plugin Article Level Metrics. Per utilizzare i servizi Paperbuzz, è necessario che gli articoli abbiano DOI registrati.</message>
+	<message key="plugins.generic.paperbuzz.metrics">Metriche</message>
 	<message key="plugins.generic.paperbuzz.loading">Caricamento metriche ...</message>
 
 	<message key="plugins.generic.paperbuzz.settings">Impostazioni</message>
+	<message key="plugins.generic.paperbuzz.settings.apiEmail">Indirizzo E-mail</message>
+	<message key="plugins.generic.paperbuzz.settings.apiEmail.description">Per utilizzare il servizio Paperbuzz è necessario fornire un indirizzo e-mail.</message>
+	<message key="plugins.generic.paperbuzz.settings.apiEmail.required">È richiesto un indirizzo e-mail.</message>
+	<message key="plugins.generic.paperbuzz.settings.graph.description">Selezionare una vista: Grafica della vita utile (maggiore) o numero di utilizzi (minore) </message>
+	<message key="plugins.generic.paperbuzz.settings.showGraph">Grafica</message>
+	<message key="plugins.generic.paperbuzz.settings.showMini">Numero di utilizzi</message>
+	<message key="plugins.generic.paperbuzz.settings.downloads">Downloads</message>
+	<message key="plugins.generic.paperbuzz.settings.hideDownloads">Nascondi download di articoli (visualizza solo le cifre chiave di Paperbuzz).</message>
+	<message key="plugins.generic.paperbuzz.sourceName.pdf">Viste PDF</message>
+	<message key="plugins.generic.paperbuzz.sourceName.html">Viste HTML</message>
+	<message key="plugins.generic.paperbuzz.sourceName.other">Altri formati</message>
 </locale>
