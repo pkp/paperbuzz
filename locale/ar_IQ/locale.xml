@@ -4,8 +4,8 @@
 <!--
   * @file plugins/generic/paperbuzz/locale/ar_IQ/locale.xml
   *
-  * Copyright (c) 2013-2018 Simon Fraser University
-  * Copyright (c) 2003-2018 John Willinsky
+  * Copyright (c) 2013-2019 Simon Fraser University
+  * Copyright (c) 2003-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Paperbuzz plugin localization strings
@@ -13,7 +13,20 @@
 
 <locale name="ar_IQ" full_name="العربية">
 	<message key="plugins.generic.paperbuzz.displayName">إضافة Paperbuzz</message>
+	<message key="plugins.generic.paperbuzz.description">تعرض مقاييس الاستعمال على صفحة ملخص المقالة. المجلات التي لا تتضمن معرفات المكونات الرقمية DOI ستعرض إحصائيات التنزيل فقط.</message>
+	<message key="plugins.generic.paperbuzz.metrics">المقاييس</message>
 	<message key="plugins.generic.paperbuzz.loading">يتم تحميل المقاييس...</message>
 
 	<message key="plugins.generic.paperbuzz.settings">الإعدادات</message>
+	<message key="plugins.generic.paperbuzz.settings.apiEmail">البريد الالكتروني</message>
+	<message key="plugins.generic.paperbuzz.settings.apiEmail.description">لا بد من تقديم البريد الالكتروني لاستعمال خدمة Paperbuzz.</message>
+	<message key="plugins.generic.paperbuzz.settings.apiEmail.required">البريد الالكتروني مطلوب حتماً.</message>
+	<message key="plugins.generic.paperbuzz.settings.graph.description">عرض نشرات توضح المخطط الزمني للاستعمال (أوسع) أو الاقتصار على إحصائيات العد (أصغر)</message>
+	<message key="plugins.generic.paperbuzz.settings.showGraph">إظهار النشرات</message>
+	<message key="plugins.generic.paperbuzz.settings.showMini">إظهار المختزل</message>
+	<message key="plugins.generic.paperbuzz.settings.downloads">التنزيلات</message>
+	<message key="plugins.generic.paperbuzz.settings.hideDownloads">إخفاء تنزيلات المقالة (الاقتصار على إحصائيات Paperbuzz).</message>
+	<message key="plugins.generic.paperbuzz.sourceName.pdf">معاينات PDF</message>
+	<message key="plugins.generic.paperbuzz.sourceName.html">معاينات HTML</message>
+	<message key="plugins.generic.paperbuzz.sourceName.other">معاينات الصيغ الأخرى</message>
 </locale>
