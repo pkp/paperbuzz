@@ -14,7 +14,7 @@
 
 <locale name="es_ES" full_name="Español (España)">
 	<message key="plugins.generic.paperbuzz.displayName">Módulo Paperbuzz</message>
-	<message key="plugins.generic.paperbuzz.description">Módulo para mostrar la Métrica a Nivel de Artículo (Paperbuzz, Article Level Metrics). Para usar el servicio Paperbuzz, necesitas disponer de DOIs.</message>
+	<message key="plugins.generic.paperbuzz.description">Módulo para mostrar métricas a Nivel de Artículo (Paperbuzz, Article Level Metrics). Para usar el servicio Paperbuzz, necesitas disponer de DOIs.</message>
 	<message key="plugins.generic.paperbuzz.loading">Cargando métricas ...</message>
 
 	<message key="plugins.generic.paperbuzz.settings">Configuración</message>
