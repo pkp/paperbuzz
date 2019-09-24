@@ -158,8 +158,9 @@ class PaperbuzzPlugin extends GenericPlugin {
 		$output =& $params[2];
 
 		$article = $smarty->getTemplateVars('article');
-		assert(is_a($article, 'PublishedArticle'));
 		$this->_article = $article;
+
+		$firstPublication = reset($article->getData('publication'));
 
 		$request = $this->getRequest();
 		$context = $request->getContext();
@@ -174,12 +175,11 @@ class PaperbuzzPlugin extends GenericPlugin {
 			$allStatsJson = $this->_buildRequiredJson($paperbuzzJsonDecoded, $downloadJsonDecoded);
 			$smarty->assign('allStatsJson', $allStatsJson);
 
-			$datePublished = $this->_article->getDatePublished();
-			if (!empty($datePublished)) {
-				$datePublishedShort = date('[Y, n, j]', strtotime($datePublished));
+			if (!empty($firstPublication->getData('datePublished'))) {
+				$datePublishedShort = date('[Y, n, j]', strtotime($firstPublication->getData('datePublished')));
+				$smarty->assign('datePublished', $datePublishedShort);
 			}
 
-			$smarty->assign('datePublished', $datePublishedShort);
 			$showMini = $this->getSetting($context->getId(), 'showMini') ? 'true' : 'false';
 			$smarty->assign('showMini', $showMini);
 			$metricsHTML = $smarty->fetch($this->getTemplateResource('output.tpl'));
