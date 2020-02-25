@@ -160,7 +160,8 @@ class PaperbuzzPlugin extends GenericPlugin {
 		$article = $smarty->getTemplateVars('article');
 		$this->_article = $article;
 
-		$firstPublication = reset($article->getData('publication'));
+		$publishedPublications = (array) $article->getPublishedPublications();
+		$firstPublication = reset($publishedPublications);
 
 		$request = $this->getRequest();
 		$context = $request->getContext();
