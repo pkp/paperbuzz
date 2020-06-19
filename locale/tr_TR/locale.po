@@ -2,20 +2,68 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
+"PO-Revision-Date: 2020-06-20 15:39+0000\n"
+"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/plugins/"
+"paperbuzz/tr_TR/>\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
-"PO-Revision-Date: 2020-06-19T00:31:49+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.generic.paperbuzz.displayName"
 msgstr "Paperbuzz Eklentisi"
 
 msgid "plugins.generic.paperbuzz.loading"
-msgstr "Ölçüm Çağırılıyor ..."
+msgstr "Ölçüm Çağrılıyor ..."
 
 msgid "plugins.generic.paperbuzz.settings"
 msgstr "Ayarlar"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Diğer format görüntüleme"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "HTML görüntüleme"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "PDF görüntüleme"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr ""
+"Makale indirme istatistiklerini gizle (yalnızca Paperbuzz'dan gelen "
+"metrikleri görüntüle)."
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "İndirmeler"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Kompakt göster"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Grafikleri göster"
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Kullanım grafiklerini zaman çizelgesine göre (daha büyük) veya kullanım "
+"sayılarına (daha küçük) gösterir"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "E-posta zorunlu."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr "Paperbuzz hizmetini kullanmak için bir e-posta adresi girmeniz gerekir."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "E-posta"
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "İstatistikler"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr ""
+"Bu eklenti makale öz sayfasında kullanım istatistiklerini gösterir. DOI "
+"atanmayan makalelerde yalnızca indirme istatistikleri görüntülenir."
