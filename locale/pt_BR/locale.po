@@ -1,0 +1,24 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
+"PO-Revision-Date: 2020-06-19T00:31:49+00:00\n"
+"Language: \n"
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "Plugin Paperbuzz"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr "Plugin para mostrar Métricas a Nível de Artigo. Para usar os serviços Paperbuzz, é necessário o uso de DOIs."
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "Carregando Métricas ..."
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "Configurações"

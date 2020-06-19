@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
+"PO-Revision-Date: 2020-06-19T00:31:49+00:00\n"
+"Language: \n"
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "Plugiciel Paperbuzz"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr "Plugiciel qui affiche des métriques au niveau de l'article. Pour utiliser le service Paperbuzz, il faut que les articles aient des DOIs."
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Métriques"
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "Chargements des métriques ..."
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "Paramètres"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "Courriel"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr "Vous devez fournir une adresse e-mail pour utiliser le service Paperbuzz."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "L'adresse e-mail est obligatoire."
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr "Afficher les graphiques montrant la chronologie d'utilisation (plus grand) ou seulement les comptages (plus petit)"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Visualiser les graphiques"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Visualiser les comptages"
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Téléchargements"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr "Masquer les téléchargements d'articles (afficher uniquement les métriques de Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "Vues PDF"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "Vues HTML"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Vues d'autres formats"

@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
+"PO-Revision-Date: 2020-06-19T00:31:49+00:00\n"
+"Language: \n"
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "إضافة Paperbuzz"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr "تعرض مقاييس الاستعمال على صفحة ملخص المقالة. المجلات التي لا تتضمن معرفات المكونات الرقمية DOI ستعرض إحصائيات التنزيل فقط."
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "المقاييس"
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "يتم تحميل المقاييس..."
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "الإعدادات"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "البريد الالكتروني"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr "لا بد من تقديم البريد الالكتروني لاستعمال خدمة Paperbuzz."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "البريد الالكتروني مطلوب حتماً."
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr "عرض نشرات توضح المخطط الزمني للاستعمال (أوسع) أو الاقتصار على إحصائيات العد (أصغر)"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "إظهار النشرات"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "إظهار المختزل"
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "التنزيلات"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr "إخفاء تنزيلات المقالة (الاقتصار على إحصائيات Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "معاينات PDF"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "معاينات HTML"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "معاينات الصيغ الأخرى"

@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
+"PO-Revision-Date: 2020-06-19T00:31:49+00:00\n"
+"Language: \n"
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "Paperbuzz Plugin"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr "Plugin to display in usage metrics on abstract page. Journals that do not assign DOIs will only display download metrics."
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Metrics"
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "Metrics Loading ..."
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "Settings"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "E-mail"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr "You must provide an email address to use the Paperbuzz service."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "E-mail is required."
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr "Display graphs showing timeline of usage (bigger) or only the counts (smaller)"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Show graphs"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Show compact"
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Downloads"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr "Hide article downloads (only display metrics from Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "PDF views"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "HTML views"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Other format views"

@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
+"PO-Revision-Date: 2020-06-19T00:31:49+00:00\n"
+"Language: \n"
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "Paperbuzz-Plug-In"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr "Plug-In zur Anzeige von Article Level Metrics. Um den Paperbuzz-Dienst benutzen zu können, müssen die Artikel mit DOIs versehen sein."
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Metriken"
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "Metriken werden geladen ..."
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "Einstellungen"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "E-mail"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr "Sie müssen eine E-Mail-Adresse angeben, um den Paperbuzz-Dienst nutzen zu können."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "Eine E-mail ist erforderlich."
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr "Ansicht auswählen: Grafiken der Nutzungsdauer (grösser) oder Nutzungszahlen (kleiner)"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Grafiken"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Nutzungszahlen"
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Downloads"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr "Artikel-Downloads ausblenden (nur Anzeige von Kennzahlen aus Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "PDF-Ansichten"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "HTML-Ansichten "
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Andere Formate"
