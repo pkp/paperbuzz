@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
+"PO-Revision-Date: 2020-06-20 15:39+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/plugins/"
+"paperbuzz/ca_ES/>\n"
+"Language: ca_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
-"PO-Revision-Date: 2020-06-19T00:31:49+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.generic.paperbuzz.displayName"
 msgstr "Mòdul Paperbuzz"
@@ -22,3 +25,44 @@ msgstr "Carregant mètriques ..."
 
 msgid "plugins.generic.paperbuzz.settings"
 msgstr "Configuració"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Visualitzacions d'altres formats"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "Visualitzacions de l'HTML"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "Visualitzacions del PDF"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr ""
+"Ocultar les descàrregues d'articles (només mostrar les mètriques de "
+"Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Descàrregues"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Mostrar compacte"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Mostrar gràfics"
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Mostra els gràfics que ensenyin les línies de temps d'ús (més grans) o només "
+"les sumes (més petits)"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "El correu electrònic és obligatori."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr ""
+"Heu de proporcionar un correu electrònic per utilitzar el servei Paperbuzz."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "Correu electrònic"
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Mètriques"
