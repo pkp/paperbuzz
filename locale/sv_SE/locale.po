@@ -1,2 +1,66 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2020-06-23 06:39+0000\n"
+"Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
+"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/plugins/"
+"paperbuzz/sv_SE/>\n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Visningar i andra format"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "HTML visningar"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "PDF visningar"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr ""
+"Dölj antalet nedladdningar av artiklar (visa bara metrics från Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Nedladdningar"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Visa kompakt"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Visa grafer"
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Visar grafer över tidslinjer av användning(större) eller bara antalet "
+"(mindre)"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "En e-post adress krävs."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr ""
+"Du måste ange en e-post adress för att kunna använda Paperbuzz funktionen."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "E-post"
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "Inställningar"
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "Laddar metrics..."
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Metrics"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr ""
+"Ett plugin som visar metric över besök på abstract sidan. Tidskrifter som "
+"inte använder DOIs kommer bara att visa metric över nedladdningar."
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "Paperbuzz plugin"
