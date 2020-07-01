@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-06-23 06:39+0000\n"
+"PO-Revision-Date: 2020-07-02 06:40+0000\n"
 "Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/plugins/"
 "paperbuzz/sv_SE/>\n"
@@ -15,14 +15,14 @@ msgid "plugins.generic.paperbuzz.sourceName.other"
 msgstr "Visningar i andra format"
 
 msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "HTML visningar"
+msgstr "HTML-visningar"
 
 msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "PDF visningar"
+msgstr "PDF-visningar"
 
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr ""
-"Dölj antalet nedladdningar av artiklar (visa bara metrics från Paperbuzz)."
+"Dölj antalet nedladdningar av artiklar (visa bara statistik från Paperbuzz)."
 
 msgid "plugins.generic.paperbuzz.settings.downloads"
 msgstr "Nedladdningar"
@@ -39,11 +39,11 @@ msgstr ""
 "(mindre)"
 
 msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
-msgstr "En e-post adress krävs."
+msgstr "En e-postadress krävs."
 
 msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
 msgstr ""
-"Du måste ange en e-post adress för att kunna använda Paperbuzz funktionen."
+"Du måste ange en e-post adress för att kunna använda Paperbuzz-funktionen."
 
 msgid "plugins.generic.paperbuzz.settings.apiEmail"
 msgstr "E-post"
@@ -52,15 +52,15 @@ msgid "plugins.generic.paperbuzz.settings"
 msgstr "Inställningar"
 
 msgid "plugins.generic.paperbuzz.loading"
-msgstr "Laddar metrics..."
+msgstr "Laddar statistik..."
 
 msgid "plugins.generic.paperbuzz.metrics"
-msgstr "Metrics"
+msgstr "Statistik"
 
 msgid "plugins.generic.paperbuzz.description"
 msgstr ""
-"Ett plugin som visar metric över besök på abstract sidan. Tidskrifter som "
-"inte använder DOIs kommer bara att visa metric över nedladdningar."
+"Ett plugin som visar besöksstatistik på abstract-sidan. Tidskrifter som inte "
+"använder DOIs kommer bara att visa statistik över nedladdningar."
 
 msgid "plugins.generic.paperbuzz.displayName"
 msgstr "Paperbuzz plugin"
