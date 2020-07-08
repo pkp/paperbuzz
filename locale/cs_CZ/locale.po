@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
+"PO-Revision-Date: 2020-06-20 15:39+0000\n"
+"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/plugins/paperbuzz/"
+"cs/>\n"
+"Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
-"PO-Revision-Date: 2020-06-19T00:31:49+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.generic.paperbuzz.displayName"
 msgstr "Plugin Paperbuzz"
@@ -22,3 +25,41 @@ msgstr "Metriky se nahrávají ..."
 
 msgid "plugins.generic.paperbuzz.settings"
 msgstr "Nastavení"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Zobrazení ostatních formátů"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "Počty náhledů HTML"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "Počty náhledů PDF"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr "Nezobrazovat počty stažení článků (ukazovat pouze metriky Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Stažení"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Ukázat kompaktní"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Ukázat grafy"
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Zobrazený graf ukazuje časový průběh využívání (větší), nebo pouze počty "
+"(menší)"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "Je vyžadován email."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr "Pokud chcete využívat službu Paperbuzz, musíte zadat email."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "E-mail"
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Metriky"

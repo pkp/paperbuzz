@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
+"PO-Revision-Date: 2020-06-24 19:39+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
+"plugins/paperbuzz/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
-"PO-Revision-Date: 2020-06-19T00:31:49+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.generic.paperbuzz.displayName"
 msgstr "Plugin Paperbuzz"
@@ -22,3 +25,41 @@ msgstr "Carregando Métricas ..."
 
 msgid "plugins.generic.paperbuzz.settings"
 msgstr "Configurações"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Outros formatos de visualizações"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "Visualizações HTML"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "Visualizações em PDF"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr "Ocultar artigos baixados (exiba apenas as métricas do Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Baixados"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Mostrar compacto"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Mostrar gráficos"
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Exibir gráficos mostrando a linha do tempo de uso (maior) ou apenas as "
+"contagens (menores)"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "O e-mail é obrigatório."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr "Você deve fornecer um endereço de e-mail para usar o serviço Paperbuzz."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "E-mail"
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Métricas"
