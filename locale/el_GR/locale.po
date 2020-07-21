@@ -1,2 +1,66 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2020-07-21 12:28+0000\n"
+"Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
+"Language-Team: Greek <http://translate.pkp.sfu.ca/projects/plugins/paperbuzz/"
+"el_GR/>\n"
+"Language: el_GR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Άλλες μορφές προβολής"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "Προβολή σε HTML"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "Προβολή σε PDF"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr "Απόκρυψη λήψεων άρθρων (εμφανίζονται μόνο μετρήσεις από το Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Λήψεις"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Συμπαγής μορφή"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Εμφάνιση Γραφημάτων"
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Εμφάνιση γραφημάτων που δείχνουν το χρονοδιάγραμμα χρήσης (μεγαλύτερο) ή "
+"μόνο τις μετρήσεις (μικρότερο)"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "Απαιτείται e-mail."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr ""
+"Πρέπει να δώσετε μια διεύθυνση email για να χρησιμοποιήσετε την υπηρεσία "
+"Paperbuzz."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "E-mail"
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "Ρυθμίσεις"
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "Φόρτωση Μετρικών..."
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Μετρικά"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr ""
+"Αυτό το πρόσθετο παρουσιάζει μετρικά χρήσης στη σελίδα περίληψης. Τα "
+"περιοδικά που δεν εκχωρούν DOI θα εμφανίζουν μόνο μετρικά λήψεων."
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "Πρόσθετο Paperbuzz"
