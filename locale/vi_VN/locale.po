@@ -1,0 +1,64 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-07-11 17:40+0000\n"
+"Last-Translator: Tran Ngoc Trung <khuchatthienduong@gmail.com>\n"
+"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/plugins/"
+"paperbuzz/vi_VN/>\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Chế độ xem định dạng khác"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "Lượt xem HTML"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "Lượt xem PDF"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr "Ẩn tải xuống bài viết (chỉ hiển thị số liệu từ Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Tải xuống"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Hiển thị nhỏ gọn"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Hiển thị biểu đồ"
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Hiển thị biểu đồ hiển thị dòng thời gian sử dụng (lớn hơn) hoặc chỉ các số "
+"đếm (nhỏ hơn)"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "Email là bắt buộc."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr "Bạn phải cung cấp địa chỉ email để sử dụng dịch vụ Paperbuzz."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "Email"
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "Cài đặt"
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "Đang tải số liệu ..."
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Số liệu"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr ""
+"Plugin để hiển thị trong số liệu sử dụng trên trang tóm tắt. Các tạp chí "
+"không chỉ định DOIs sẽ chỉ hiển thị số liệu tải xuống."
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "Plugin Paperbuzz"
