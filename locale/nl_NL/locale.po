@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
+"PO-Revision-Date: 2020-10-19 15:42+0000\n"
+"Last-Translator: Hans Spijker <hans.spijker@huygens.knaw.nl>\n"
+"Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/plugins/paperbuzz/"
+"nl/>\n"
+"Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
-"PO-Revision-Date: 2020-06-19T00:31:49+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.generic.paperbuzz.displayName"
 msgstr "Paperbuzz Plugin"
@@ -22,3 +25,42 @@ msgstr "Metrics worden geladen ..."
 
 msgid "plugins.generic.paperbuzz.settings"
 msgstr "Instellingen"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Andere formaatweergaven"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "HTML-weergaven"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "PDF-weergaven"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr "Verberg artikeldownloads (alleen statistieken van Paperbuzz weergeven)."
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Downloads"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Compacte weergave"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Toon grafieken"
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Geef grafieken weer die de tijdlijn van het gebruik (groter) of alleen de "
+"tellingen (kleiner) weergeven"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "E-mail is vereist."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr ""
+"U moet een e-mailadres opgeven om de Paperbuzz-service te kunnen gebruiken."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "E-mail"
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Statistieken"
