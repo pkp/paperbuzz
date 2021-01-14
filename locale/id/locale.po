@@ -1,2 +1,65 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2021-01-15 07:53+0000\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/plugins/"
+"paperbuzz/id_ID/>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Jumlah akses format lain"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "Jumlah akses HTML"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "Jumlah akses PDF"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr "Sembunyikan unduhan artikel (cukup tampilkan metrik dari Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Unduhan"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Tampilkan Singkat"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Tampilkan grafik"
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Menampilkan grafik yang menunjukkan timeline penggunaan (lebih besar) atau "
+"hanya berupa jumlah (lebih kecil)"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "Surel wajib diisi."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr ""
+"Anda wajib memberikan alamat surel untuk bisa menggunakan layanan Paperbuzz."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "Surel"
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "Pengaturan"
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "Metrik sedang dimuat ..."
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Metrik"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr ""
+"Plugin untuk menampilkan metrik pemakaian pada halaman abstrak. Jurnal yang "
+"tidak memiliki DOI hanya akan menampilkan metrik unduhan."
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "Plugin Paperbuzz"
