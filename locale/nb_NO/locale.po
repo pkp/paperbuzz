@@ -1,2 +1,64 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2021-01-16 23:53+0000\n"
+"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"plugins/paperbuzz/nb_NO/>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Visninger i andre format"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "HTML-visninger"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "PDF-visninger"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr "Skjul nedlastinger av artikler (vis bare statistikk fra Paperbzz)."
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Nedlastinger"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Vis komprimert"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Vis grafer"
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Vis grafer som viser tidslinjer over bruk (større) eller bare antallet "
+"(mindre)"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "Du må fylle inn en e-post."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr "Du må angi en e-post for å bruke Paperbuzz-tjenesten."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "E-post"
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "Innstillinger"
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "Laster statistikk…"
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Statistikk"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr ""
+"Programtillegg som viser besøksstatistikk på abstrakt-siden. Tidsskrifter "
+"som ikke tildeler DOI vil kun se nedlastingsstatistikk."
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "Paperbuzz programtillegg"
