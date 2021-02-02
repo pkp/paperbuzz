@@ -36,7 +36,8 @@ class PaperbuzzSettingsForm extends Form {
 	/**
 	 * @copydoc Form::initData()
 	 */
-	function initData($request) {
+	function initData() {
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		if ($context) {
 			$plugin = $this->plugin;
@@ -60,7 +61,7 @@ class PaperbuzzSettingsForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = NULL, $display = false) {
 		$plugin = $this->plugin;
 		$showMiniOptions = array(
 			false => __('plugins.generic.paperbuzz.settings.showGraph'),
@@ -76,7 +77,8 @@ class PaperbuzzSettingsForm extends Form {
 	 * Save settings.
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
+	function execute(...$functionArgs) {
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		if ($context) {
 			$plugin = $this->plugin;

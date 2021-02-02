@@ -220,44 +220,25 @@ class PaperbuzzPlugin extends GenericPlugin {
 		$request = $this->getRequest();
 		$context = $request->getContext();
 		$apiEmail = $this->getSetting($context->getId(), 'apiEmail');
-		// Construct the parameters to send to the web service
-		$searchParams = array(
-			'email' => $apiEmail,
-		);
 
-		// Call the web service (URL defined at top of this file)
-		$resultJson = $this->_callWebService(PAPERBUZZ_API_URL . 'doi/' . $this->_article->getStoredPubId('doi'), $searchParams);
+		$url = PAPERBUZZ_API_URL . 'doi/' . $this->_article->getStoredPubId('doi') . '?email=' . urlencode($apiEmail);
 		// For teting use one of the following two lines instead of the line above and do not forget to clear the cache
-		//$resultJson = $this->_callWebService(PAPERBUZZ_API_URL . 'doi/' . '10.1787/180d80ad-en', $searchParams);
-		//$resultJson = $this->_callWebService(PAPERBUZZ_API_URL . 'doi/' . '10.1371/journal.pmed.0020124', $searchParams);
+		// $url = PAPERBUZZ_API_URL . 'doi/10.1787/180d80ad-en?email=' . urlencode($apiEmail);
+		// $url = PAPERBUZZ_API_URL . 'doi/10.1371/journal.pmed.0020124?email=' . urlencode($apiEmail);
 
 		$paperbuzzStatsJsonDecoded = array();
+		$httpClient = Application::get()->getHttpClient();
+		try {
+			$response = $httpClient->request('GET', $url);
+		} catch (GuzzleHttp\Exception\RequestException $e) {
+			return $paperbuzzStatsJsonDecoded;
+		}
+		$resultJson = $response->getBody()->getContents();
 		if ($resultJson) {
 			$paperbuzzStatsJsonDecoded = @json_decode($resultJson, true);
 		}
 		$cache->setEntireCache($paperbuzzStatsJsonDecoded);
 		return $paperbuzzStatsJsonDecoded;
-	}
-
-	/**
-	 * Call web service with the given parameters
-	 * @param $url string
-	 * @param $params array GET or POST parameters
-	 * @param $method string (optional)
-	 * @return JSON or null in case of error
-	 */
-	function &_callWebService($url, &$params, $method = 'GET') {
-		// Create a request
-		if (!is_array($params)) {
-			$params = array();
-		}
-		$webServiceRequest = new WebServiceRequest($url, $params, $method);
-		// Configure and call the web service
-		$webService = new WebService();
-		$webService->setSslVersion(CURL_SSLVERSION_TLSv1_2);
-		$result =& $webService->call($webServiceRequest);
-
-		return $result;
 	}
 
 	/**
@@ -352,8 +333,6 @@ class PaperbuzzPlugin extends GenericPlugin {
 		$totalOther = 0;
 		$byMonth = array();
 		$byYear = array();
-
-		if (!is_array($stats)) $stats = array();
 
 		if ($statsByMonth) foreach ($statsByMonth as $record) {
 			$views = $record[STATISTICS_METRIC];
