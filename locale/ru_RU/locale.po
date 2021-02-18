@@ -2,14 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
+"PO-Revision-Date: 2020-12-17 17:52+0000\n"
+"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"Language-Team: Russian <http://translate.pkp.sfu.ca/projects/plugins/"
+"paperbuzz/ru_RU/>\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
-"PO-Revision-Date: 2020-06-19T00:31:49+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.generic.paperbuzz.displayName"
 msgstr "Плагин «Paperbuzz»"
@@ -22,3 +26,43 @@ msgstr "Загрузка метрик ..."
 
 msgid "plugins.generic.paperbuzz.settings"
 msgstr "Настройки"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Просмотры других форматов"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "Просмотры HTML"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "Просмотры PDF"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr "Скрыть скачивания статей (показывать только метрики из Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Скачивания"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Показать компактно"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Показать графики"
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Строить графики, отображающие шкалу времени использования (размер больше) "
+"или только количество (размер меньше)"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "Адрес электронной почты обязателен."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr ""
+"Вы должны указать адрес электронной почты, чтобы использовать сервис "
+"Paperbuzz."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "Адрес электронной почты"
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Метрики"

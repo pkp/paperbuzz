@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-02-11 14:53+0000\n"
+"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/plugins/"
+"paperbuzz/mk_MK/>\n"
+"Language: mk_MK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Прегледи на останати формати"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "HTML прегледи"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "PDF прегледи"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr ""
+"Скријте ги превземањата на трудот (прикажете ги само метриките од Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Превземања"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Прикажи збиено"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Прикажи графикони"
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Прикажете графикони кои претставуваат временска рамка на употреба (поголеми) "
+"или само броењето (помали)"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "Потребна е е-пошта."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr ""
+"Мора да обезбедите адреса на е-пошта за да ги користите услугите на "
+"Paperbuzz."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "Е-пошта"
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "Поставки"
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "Метриките се вчитуваат ..."
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Метрики"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr ""
+"Плагин за прикажување на метрика за употреба на страницата на апстрактот. "
+"Списанијата што не доделуваат ДОИ ќе прикажат само метрики за преземање."
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "Paperbuzz плагин"
