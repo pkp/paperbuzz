@@ -43,6 +43,8 @@ class PaperbuzzPlugin extends GenericPlugin {
 			if ($context && $this->getSetting($context->getId(), 'apiEmail')) {
 				// Add visualization to article view page
 				HookRegistry::register('Templates::Article::Main', array($this, 'articleMainCallback'));
+				// Add visualization to preprint view page
+				HookRegistry::register('Templates::Preprint::Main', array(&$this, 'preprintMainCallback'));
 				// Add JavaScript and CSS needed, when the article template is displyed
 				HookRegistry::register('TemplateManager::display',array(&$this, 'templateManagerDisplayCallback'));
 			}
@@ -136,15 +138,61 @@ class PaperbuzzPlugin extends GenericPlugin {
 	function templateManagerDisplayCallback($hookName, $params) {
 		$templateMgr =& $params[0];
 		$template =& $params[1];
-		if ($template == 'frontend/pages/article.tpl') {
-			$request = $this->getRequest();
-			$baseImportPath = $request->getBaseUrl() . '/' . $this->getPluginPath() . '/' .'paperbuzzviz' . '/';
+		$application = Application::get();
+		$applicationName = $application->getName();
+		($applicationName == 'ops' ? $publication = 'preprint' : $publication = 'article');
+		if ($template == 'frontend/pages/' . $publication . '.tpl') {
+		$request = $this->getRequest();
+			$baseImportPath = $request->getBaseUrl() . '/' . $this->getPluginPath() . '/' . 'paperbuzzviz' . '/';
 			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->addJavaScript('d3','https://d3js.org/d3.v4.min.js', array('context' => 'frontend-article-view'));
-			$templateMgr->addJavaScript('d3-tip', 'https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js', array('context' => 'frontend-article-view'));
-			$templateMgr->addJavaScript('paperbuzzvizJS', $baseImportPath . 'paperbuzzviz.js', array('context' => 'frontend-article-view'));
-			$templateMgr->addStyleSheet('paperbuzzvizCSS', $baseImportPath . 'assets/css/paperbuzzviz.css', array('context' => 'frontend-article-view'));
+			$templateMgr->addJavaScript('d3', 'https://d3js.org/d3.v4.min.js', array('context' => 'frontend-'.$publication.'-view'));
+			$templateMgr->addJavaScript('d3-tip', 'https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js', array('context' => 'frontend-'.$publication.'-view'));
+			$templateMgr->addJavaScript('paperbuzzvizJS', $baseImportPath . 'paperbuzzviz.js', array('context' => 'frontend-'.$publication.'-view'));
+			$templateMgr->addStyleSheet('paperbuzzvizCSS', $baseImportPath . 'assets/css/paperbuzzviz.css', array('context' => 'frontend-'.$publication.'-view'));
+		}		
+	}
+
+/**
+	 * Adds the visualization of the preprint level metrics.
+	 * @param $hookName string
+	 * @param $params array
+	 * @return boolean
+	 */
+	function preprintMainCallback($hookName, $params) {
+		$smarty = &$params[1];
+		$output = &$params[2];
+
+		$preprint = $smarty->getTemplateVars('preprint');
+		$this->_article = $preprint;
+
+		$publishedPublications = (array) $preprint->getPublishedPublications();
+		$firstPublication = reset($publishedPublications);
+
+		$request = $this->getRequest();
+		$context = $request->getContext();
+
+		$paperbuzzJsonDecoded = $this->_getPaperbuzzJsonDecoded();
+		$downloadJsonDecoded = array();
+		if (!$this->getSetting($context->getId(), 'hideDownloads')) {
+			$downloadJsonDecoded = $this->_getDownloadsJsonDecoded();
 		}
+
+		if (!empty($downloadJsonDecoded) || !empty($paperbuzzJsonDecoded)) {
+			$allStatsJson = $this->_buildRequiredJson($paperbuzzJsonDecoded, $downloadJsonDecoded);
+			$smarty->assign('allStatsJson', $allStatsJson);
+
+			if (!empty($firstPublication->getData('datePublished'))) {
+				$datePublishedShort = date('[Y, n, j]', strtotime($firstPublication->getData('datePublished')));
+				$smarty->assign('datePublished', $datePublishedShort);
+			}
+
+			$showMini = $this->getSetting($context->getId(), 'showMini') ? 'true' : 'false';
+			$smarty->assign('showMini', $showMini);
+			$metricsHTML = $smarty->fetch($this->getTemplateResource('output.tpl'));
+			$output .= $metricsHTML;
+		}
+
+		return false;
 	}
 
 	/**
