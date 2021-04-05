@@ -29,6 +29,8 @@ class PaperbuzzPlugin extends GenericPlugin {
 	/** @var $_article PublishedArticle */
 	var $_article;
 
+	var $_submissionNoun;
+	
 	/**
 	 * @see LazyLoadPlugin::register()
 	 */
@@ -41,10 +43,14 @@ class PaperbuzzPlugin extends GenericPlugin {
 		if ($success && $this->getEnabled($mainContextId)) {
 			$this->_registerTemplateResource();
 			if ($context && $this->getSetting($context->getId(), 'apiEmail')) {
+				
+				$application = Application::get();
+				$applicationName = $application->getName();
+				$applicationName == 'ops' ? $this->_submissionNoun = 'preprint' : $this->_submissionNoun = 'article';
 				// Add visualization to article view page
-				HookRegistry::register('Templates::Article::Main', array($this, 'articleMainCallback'));
+				HookRegistry::register('Templates::Article::Main', array($this, 'submissionMainCallback'));
 				// Add visualization to preprint view page
-				HookRegistry::register('Templates::Preprint::Main', array(&$this, 'preprintMainCallback'));
+				HookRegistry::register('Templates::Preprint::Main', array(&$this, 'submissionMainCallback'));
 				// Add JavaScript and CSS needed, when the article template is displyed
 				HookRegistry::register('TemplateManager::display',array(&$this, 'templateManagerDisplayCallback'));
 			}
@@ -138,77 +144,31 @@ class PaperbuzzPlugin extends GenericPlugin {
 	function templateManagerDisplayCallback($hookName, $params) {
 		$templateMgr =& $params[0];
 		$template =& $params[1];
-		$application = Application::get();
-		$applicationName = $application->getName();
-		($applicationName == 'ops' ? $publication = 'preprint' : $publication = 'article');
-		if ($template == 'frontend/pages/' . $publication . '.tpl') {
+		if ($template == 'frontend/pages/' . $this->_submissionNoun . '.tpl') {
 		$request = $this->getRequest();
 			$baseImportPath = $request->getBaseUrl() . '/' . $this->getPluginPath() . '/' . 'paperbuzzviz' . '/';
 			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->addJavaScript('d3', 'https://d3js.org/d3.v4.min.js', array('context' => 'frontend-'.$publication.'-view'));
-			$templateMgr->addJavaScript('d3-tip', 'https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js', array('context' => 'frontend-'.$publication.'-view'));
-			$templateMgr->addJavaScript('paperbuzzvizJS', $baseImportPath . 'paperbuzzviz.js', array('context' => 'frontend-'.$publication.'-view'));
-			$templateMgr->addStyleSheet('paperbuzzvizCSS', $baseImportPath . 'assets/css/paperbuzzviz.css', array('context' => 'frontend-'.$publication.'-view'));
+			$templateMgr->addJavaScript('d3', 'https://d3js.org/d3.v4.min.js', array('context' => 'frontend-'.$this->_submissionNoun.'-view'));
+			$templateMgr->addJavaScript('d3-tip', 'https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js', array('context' => 'frontend-'.$this->_submissionNoun.'-view'));
+			$templateMgr->addJavaScript('paperbuzzvizJS', $baseImportPath . 'paperbuzzviz.js', array('context' => 'frontend-'.$this->_submissionNoun.'-view'));
+			$templateMgr->addStyleSheet('paperbuzzvizCSS', $baseImportPath . 'assets/css/paperbuzzviz.css', array('context' => 'frontend-'.$this->_submissionNoun.'-view'));
 		}		
 	}
 
 /**
-	 * Adds the visualization of the preprint level metrics.
+	 * Adds the visualization of the submission (preprint por OPS, article for OJS) level metrics.
 	 * @param $hookName string
 	 * @param $params array
 	 * @return boolean
 	 */
-	function preprintMainCallback($hookName, $params) {
+	function submissionMainCallback($hookName, $params) {
 		$smarty = &$params[1];
 		$output = &$params[2];
 
-		$preprint = $smarty->getTemplateVars('preprint');
-		$this->_article = $preprint;
+		$submission = $smarty->getTemplateVars($this->_submissionNoun);
+		$this->_article = $submission;
 
-		$publishedPublications = (array) $preprint->getPublishedPublications();
-		$firstPublication = reset($publishedPublications);
-
-		$request = $this->getRequest();
-		$context = $request->getContext();
-
-		$paperbuzzJsonDecoded = $this->_getPaperbuzzJsonDecoded();
-		$downloadJsonDecoded = array();
-		if (!$this->getSetting($context->getId(), 'hideDownloads')) {
-			$downloadJsonDecoded = $this->_getDownloadsJsonDecoded();
-		}
-
-		if (!empty($downloadJsonDecoded) || !empty($paperbuzzJsonDecoded)) {
-			$allStatsJson = $this->_buildRequiredJson($paperbuzzJsonDecoded, $downloadJsonDecoded);
-			$smarty->assign('allStatsJson', $allStatsJson);
-
-			if (!empty($firstPublication->getData('datePublished'))) {
-				$datePublishedShort = date('[Y, n, j]', strtotime($firstPublication->getData('datePublished')));
-				$smarty->assign('datePublished', $datePublishedShort);
-			}
-
-			$showMini = $this->getSetting($context->getId(), 'showMini') ? 'true' : 'false';
-			$smarty->assign('showMini', $showMini);
-			$metricsHTML = $smarty->fetch($this->getTemplateResource('output.tpl'));
-			$output .= $metricsHTML;
-		}
-
-		return false;
-	}
-
-	/**
-	 * Adds the visualization of the article level metrics.
-	 * @param $hookName string
-	 * @param $params array
-	 * @return boolean
-	 */
-	function articleMainCallback($hookName, $params) {
-		$smarty =& $params[1];
-		$output =& $params[2];
-
-		$article = $smarty->getTemplateVars('article');
-		$this->_article = $article;
-
-		$publishedPublications = (array) $article->getPublishedPublications();
+		$publishedPublications = (array) $submission->getPublishedPublications();
 		$firstPublication = reset($publishedPublications);
 
 		$request = $this->getRequest();
