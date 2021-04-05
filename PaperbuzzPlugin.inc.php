@@ -49,9 +49,9 @@ class PaperbuzzPlugin extends GenericPlugin {
 				$applicationName = $application->getName();
 				$applicationName == 'ops' ? $this->_publicationNoun = 'preprint' : $this->_publicationNoun = 'article';
 				// Add visualization to article view page
-				HookRegistry::register('Templates::Article::Main', array($this, 'submissionMainCallback'));
+				HookRegistry::register('Templates::Article::Main', array($this, 'publicationMainCallback'));
 				// Add visualization to preprint view page
-				HookRegistry::register('Templates::Preprint::Main', array(&$this, 'submissionMainCallback'));
+				HookRegistry::register('Templates::Preprint::Main', array(&$this, 'publicationMainCallback'));
 				// Add JavaScript and CSS needed, when the article template is displyed
 				HookRegistry::register('TemplateManager::display',array(&$this, 'templateManagerDisplayCallback'));
 			}
@@ -157,12 +157,12 @@ class PaperbuzzPlugin extends GenericPlugin {
 	}
 
 /**
-	 * Adds the visualization of the submission (preprint for OPS, article for OJS) level metrics.
+	 * Adds the visualization of the publication (preprint for OPS, article for OJS) level metrics.
 	 * @param $hookName string
 	 * @param $params array
 	 * @return boolean
 	 */
-	function submissionMainCallback($hookName, $params) {
+	function publicationMainCallback($hookName, $params) {
 		$smarty = &$params[1];
 		$output = &$params[2];
 
