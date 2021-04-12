@@ -26,9 +26,12 @@ class PaperbuzzPlugin extends GenericPlugin {
 	/** @var $_downloadsCache FileCache */
 	var $_downloadsCache;
 
-	/** @var $_article PublishedArticle */
-	var $_article;
+	/** @var $_submission Submission */
+	var $_submission;
 
+	/** @var $_submissionNoun String */
+	var $_submissionNoun;
+	
 	/**
 	 * @see LazyLoadPlugin::register()
 	 */
@@ -41,10 +44,14 @@ class PaperbuzzPlugin extends GenericPlugin {
 		if ($success && $this->getEnabled($mainContextId)) {
 			$this->_registerTemplateResource();
 			if ($context && $this->getSetting($context->getId(), 'apiEmail')) {
+				
+				$application = Application::get();
+				$applicationName = $application->getName();
+				$applicationName == 'ops' ? $this->_submissionNoun = 'preprint' : $this->_submissionNoun = 'article';
 				// Add visualization to article view page
-				HookRegistry::register('Templates::Article::Main', array($this, 'articleMainCallback'));
+				HookRegistry::register('Templates::Article::Main', array($this, 'submissionMainCallback'));
 				// Add visualization to preprint view page
-				HookRegistry::register('Templates::Preprint::Main', array(&$this, 'preprintMainCallback'));
+				HookRegistry::register('Templates::Preprint::Main', array(&$this, 'submissionMainCallback'));
 				// Add JavaScript and CSS needed, when the article template is displyed
 				HookRegistry::register('TemplateManager::display',array(&$this, 'templateManagerDisplayCallback'));
 			}
@@ -138,77 +145,30 @@ class PaperbuzzPlugin extends GenericPlugin {
 	function templateManagerDisplayCallback($hookName, $params) {
 		$templateMgr =& $params[0];
 		$template =& $params[1];
-		$application = Application::get();
-		$applicationName = $application->getName();
-		($applicationName == 'ops' ? $publication = 'preprint' : $publication = 'article');
-		if ($template == 'frontend/pages/' . $publication . '.tpl') {
+		if ($template == 'frontend/pages/' . $this->_submissionNoun . '.tpl') {
 		$request = $this->getRequest();
 			$baseImportPath = $request->getBaseUrl() . '/' . $this->getPluginPath() . '/' . 'paperbuzzviz' . '/';
 			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->addJavaScript('d3', 'https://d3js.org/d3.v4.min.js', array('context' => 'frontend-'.$publication.'-view'));
-			$templateMgr->addJavaScript('d3-tip', 'https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js', array('context' => 'frontend-'.$publication.'-view'));
-			$templateMgr->addJavaScript('paperbuzzvizJS', $baseImportPath . 'paperbuzzviz.js', array('context' => 'frontend-'.$publication.'-view'));
-			$templateMgr->addStyleSheet('paperbuzzvizCSS', $baseImportPath . 'assets/css/paperbuzzviz.css', array('context' => 'frontend-'.$publication.'-view'));
+			$templateMgr->addJavaScript('d3', 'https://d3js.org/d3.v4.min.js', array('context' => 'frontend-'.$this->_submissionNoun.'-view'));
+			$templateMgr->addJavaScript('d3-tip', 'https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js', array('context' => 'frontend-'.$this->_submissionNoun.'-view'));
+			$templateMgr->addJavaScript('paperbuzzvizJS', $baseImportPath . 'paperbuzzviz.js', array('context' => 'frontend-'.$this->_submissionNoun.'-view'));
+			$templateMgr->addStyleSheet('paperbuzzvizCSS', $baseImportPath . 'assets/css/paperbuzzviz.css', array('context' => 'frontend-'.$this->_submissionNoun.'-view'));
 		}		
 	}
 
 /**
-	 * Adds the visualization of the preprint level metrics.
+	 * Adds the visualization of the submission (preprint for OPS, article for OJS) level metrics.
 	 * @param $hookName string
 	 * @param $params array
 	 * @return boolean
 	 */
-	function preprintMainCallback($hookName, $params) {
+	function submissionMainCallback($hookName, $params) {
 		$smarty = &$params[1];
 		$output = &$params[2];
 
-		$preprint = $smarty->getTemplateVars('preprint');
-		$this->_article = $preprint;
+		$this->_submission = $smarty->getTemplateVars($this->_submissionNoun);
 
-		$publishedPublications = (array) $preprint->getPublishedPublications();
-		$firstPublication = reset($publishedPublications);
-
-		$request = $this->getRequest();
-		$context = $request->getContext();
-
-		$paperbuzzJsonDecoded = $this->_getPaperbuzzJsonDecoded();
-		$downloadJsonDecoded = array();
-		if (!$this->getSetting($context->getId(), 'hideDownloads')) {
-			$downloadJsonDecoded = $this->_getDownloadsJsonDecoded();
-		}
-
-		if (!empty($downloadJsonDecoded) || !empty($paperbuzzJsonDecoded)) {
-			$allStatsJson = $this->_buildRequiredJson($paperbuzzJsonDecoded, $downloadJsonDecoded);
-			$smarty->assign('allStatsJson', $allStatsJson);
-
-			if (!empty($firstPublication->getData('datePublished'))) {
-				$datePublishedShort = date('[Y, n, j]', strtotime($firstPublication->getData('datePublished')));
-				$smarty->assign('datePublished', $datePublishedShort);
-			}
-
-			$showMini = $this->getSetting($context->getId(), 'showMini') ? 'true' : 'false';
-			$smarty->assign('showMini', $showMini);
-			$metricsHTML = $smarty->fetch($this->getTemplateResource('output.tpl'));
-			$output .= $metricsHTML;
-		}
-
-		return false;
-	}
-
-	/**
-	 * Adds the visualization of the article level metrics.
-	 * @param $hookName string
-	 * @param $params array
-	 * @return boolean
-	 */
-	function articleMainCallback($hookName, $params) {
-		$smarty =& $params[1];
-		$output =& $params[2];
-
-		$article = $smarty->getTemplateVars('article');
-		$this->_article = $article;
-
-		$publishedPublications = (array) $article->getPublishedPublications();
+		$publishedPublications = (array) $this->_submission->getPublishedPublications();
 		$firstPublication = reset($publishedPublications);
 
 		$request = $this->getRequest();
@@ -248,7 +208,7 @@ class PaperbuzzPlugin extends GenericPlugin {
 	function _getPaperbuzzJsonDecoded() {
 		if (!isset($this->_paperbuzzCache)) {
 			$cacheManager = CacheManager::getManager();
-			$this->_paperbuzzCache = $cacheManager->getCache('paperbuzz', $this->_article->getId(), array(&$this, '_paperbuzzCacheMiss'));
+			$this->_paperbuzzCache = $cacheManager->getCache('paperbuzz', $this->_submission->getId(), array(&$this, '_paperbuzzCacheMiss'));
 		}
 		if (time() - $this->_paperbuzzCache->getCacheTime() > 60 * 60 * 24) {
 			// Cache is older than one day, erase it.
@@ -269,7 +229,7 @@ class PaperbuzzPlugin extends GenericPlugin {
 		$context = $request->getContext();
 		$apiEmail = $this->getSetting($context->getId(), 'apiEmail');
 
-		$url = PAPERBUZZ_API_URL . 'doi/' . $this->_article->getStoredPubId('doi') . '?email=' . urlencode($apiEmail);
+		$url = PAPERBUZZ_API_URL . 'doi/' . $this->_submission->getStoredPubId('doi') . '?email=' . urlencode($apiEmail);
 		// For teting use one of the following two lines instead of the line above and do not forget to clear the cache
 		// $url = PAPERBUZZ_API_URL . 'doi/10.1787/180d80ad-en?email=' . urlencode($apiEmail);
 		// $url = PAPERBUZZ_API_URL . 'doi/10.1371/journal.pmed.0020124?email=' . urlencode($apiEmail);
@@ -296,7 +256,7 @@ class PaperbuzzPlugin extends GenericPlugin {
 	function _getDownloadsJsonDecoded() {
 		if (!isset($this->_downloadsCache)) {
 			$cacheManager = CacheManager::getManager();
-			$this->_downloadsCache = $cacheManager->getCache('paperbuzz-downloads', $this->_article->getId(), array(&$this, '_downloadsCacheMiss'));
+			$this->_downloadsCache = $cacheManager->getCache('paperbuzz-downloads', $this->_submission->getId(), array(&$this, '_downloadsCacheMiss'));
 		}
 		if (time() - $this->_downloadsCache->getCacheTime() > 60 * 60 * 24) {
 			// Cache is older than one day, erase it.
@@ -344,15 +304,15 @@ class PaperbuzzPlugin extends GenericPlugin {
 		$dateColumn = $byDay ? STATISTICS_DIMENSION_DAY : STATISTICS_DIMENSION_MONTH;
 		$metricTypes = array($context->getDefaultMetricType());
 		$columns = array($dateColumn, STATISTICS_DIMENSION_FILE_TYPE);
-		$filter = array(STATISTICS_DIMENSION_ASSOC_TYPE => ASSOC_TYPE_SUBMISSION_FILE, STATISTICS_DIMENSION_SUBMISSION_ID => $this->_article->getId());
+		$filter = array(STATISTICS_DIMENSION_ASSOC_TYPE => ASSOC_TYPE_SUBMISSION_FILE, STATISTICS_DIMENSION_SUBMISSION_ID => $this->_submission->getId());
 		$orderBy = array($dateColumn => STATISTICS_ORDER_ASC);
 
 		if ($byDay) {
 			// Consider only the first 30 days after the article publication
-			$datePublished = $this->_article->getDatePublished();
+			$datePublished = $this->_submission->getDatePublished();
 			if (empty($datePublished)) {
 				$issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
-				$issue = $issueDao->getById($this->_article->getIssueId());
+				$issue = $issueDao->getById($this->_submission->getIssueId());
 				$datePublished = $issue->getDatePublished();
 			}
 			$startDate = date('Ymd', strtotime($datePublished));
