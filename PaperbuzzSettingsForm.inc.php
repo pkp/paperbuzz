@@ -13,30 +13,32 @@
  * @brief Form for journal managers to modify Paperbuzz plugin settings
  */
 
-
-import('lib.pkp.classes.form.Form');
+use PKP\form\Form;
+use APP\core\Application;
+use APP\template\TemplateManager;
 
 class PaperbuzzSettingsForm extends Form {
 
-	/** @var $plugin PaperbuzzPlugin */
-	var $plugin;
+	protected PaperbuzzPlugin $plugin;
 
 	/**
 	 * Constructor
-	 * @param $plugin PaperbuzzPlugin
+	 * @param PaperbuzzPlugin $plugin
 	 */
-	function __construct($plugin) {
+	function __construct($plugin)
+	{
 		$this->plugin = $plugin;
 		parent::__construct($plugin->getTemplateResource('settingsForm.tpl'));
-		$this->addCheck(new FormValidator($this, 'apiEmail', FORM_VALIDATOR_REQUIRED_VALUE, 'plugins.generic.paperbuzz.settings.apiEmail.required'));
-		$this->addCheck(new FormValidatorPost($this));
-		$this->addCheck(new FormValidatorCSRF($this));
+		$this->addCheck(new \PKP\form\validation\FormValidator($this, 'apiEmail', \PKP\form\validation\FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'plugins.generic.paperbuzz.settings.apiEmail.required'));
+		$this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+		$this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
 	}
 
 	/**
 	 * @copydoc Form::initData()
 	 */
-	function initData() {
+	function initData()
+	{
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		if ($context) {
@@ -54,14 +56,16 @@ class PaperbuzzSettingsForm extends Form {
 	/**
 	 * @copydoc Form::readInputData()
 	 */
-	function readInputData() {
+	function readInputData()
+	{
 		$this->readUserVars(array_keys($this->getFormFields()));
 	}
 
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request, $template = NULL, $display = false) {
+	function fetch($request, $template = NULL, $display = false)
+	{
 		$plugin = $this->plugin;
 		$showMiniOptions = array(
 			false => __('plugins.generic.paperbuzz.settings.showGraph'),
@@ -77,7 +81,8 @@ class PaperbuzzSettingsForm extends Form {
 	 * Save settings.
 	 * @copydoc Form::execute()
 	 */
-	function execute(...$functionArgs) {
+	function execute(...$functionArgs)
+	{
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		if ($context) {
@@ -92,13 +97,12 @@ class PaperbuzzSettingsForm extends Form {
 	 * Get form fields
 	 * @return array (field name => field type)
 	 */
-	function getFormFields() {
-		return array(
+	function getFormFields(): array
+	{
+		return [
 			'apiEmail' => 'string',
 			'hideDownloads' => 'bool',
 			'showMini' => 'bool'
-		);
+		];
 	}
 }
-
-?>

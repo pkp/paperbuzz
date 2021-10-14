@@ -13,26 +13,34 @@
  * @brief Paperbuzz plugin class
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
-import('lib.pkp.classes.webservice.WebService');
+use APP\core\Application;
+use APP\core\Services;
+use APP\statistics\StatisticsHelper;
+use APP\submission\Submission;
+use APP\template\TemplateManager;
+use PKP\cache\CacheManager;
+use PKP\cache\FileCache;
+use PKP\config\Config;
+use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
+use PKP\plugins\GenericPlugin;
+use PKP\plugins\HookRegistry;
 
-DEFINE('PAPERBUZZ_API_URL', 'https://api.paperbuzz.org/v0/');
 
 class PaperbuzzPlugin extends GenericPlugin {
 
-	/** @var $_paperbuzzCache FileCache */
-	var $_paperbuzzCache;
+	public const PAPERBUZZ_API_URL = 'https://api.paperbuzz.org/v0/';
 
-	/** @var $_downloadsCache FileCache */
-	var $_downloadsCache;
-
-	/** @var $_article PublishedArticle */
-	var $_article;
+	private FileCache $_paperbuzzCache;
+	private FileCache $_downloadsCache;
+	private Submission $_article;
 
 	/**
-	 * @see LazyLoadPlugin::register()
+	 * @copydoc Plugin::register()
 	 */
-	function register($category, $path, $mainContextId = null) {
+	function register($category, $path, $mainContextId = null)
+	{
 		$success = parent::register($category, $path, $mainContextId);
 		if (!Config::getVar('general', 'installed')) return false;
 
@@ -46,37 +54,41 @@ class PaperbuzzPlugin extends GenericPlugin {
 				// Add visualization to preprint view page
 				HookRegistry::register('Templates::Preprint::Main', array(&$this, 'preprintMainCallback'));
 				// Add JavaScript and CSS needed, when the article template is displyed
-				HookRegistry::register('TemplateManager::display',array(&$this, 'templateManagerDisplayCallback'));
+				HookRegistry::register('TemplateManager::display', array(&$this, 'templateManagerDisplayCallback'));
 			}
 		}
 		return $success;
 	}
 
 	/**
-	 * @see LazyLoadPlugin::getName()
+	 * @copydoc Plugin::getName()
 	 */
-	function getName() {
+	function getName()
+	{
 		return 'PaperbuzzPlugin';
 	}
 
 	/**
-	 * @see PKPPlugin::getDisplayName()
+	 * @copydoc Plugin::getDisplayName()
 	 */
-	function getDisplayName() {
+	function getDisplayName()
+	{
 		return __('plugins.generic.paperbuzz.displayName');
 	}
 
 	/**
-	 * @see PKPPlugin::getDescription()
+	 * @copydoc Plugin::getDescription()
 	 */
-	function getDescription() {
+	function getDescription()
+	{
 		return __('plugins.generic.paperbuzz.description');
 	}
 
 	/**
-	 * @see Plugin::getActions()
+	 * @copydoc Plugin::getActions()
 	 */
-	public function getActions($request, $actionArgs) {
+	public function getActions($request, $actionArgs)
+	{
 		$actions = parent::getActions($request, $actionArgs);
 		// Settings are only context-specific
 		if (!$this->getEnabled()) {
@@ -109,9 +121,10 @@ class PaperbuzzPlugin extends GenericPlugin {
 	}
 
 	/**
-	 * @see Plugin::manage()
+	 * @copydoc Plugin::manage()
 	 */
-	public function manage($args, $request) {
+	public function manage($args, $request)
+	{
 		switch ($request->getUserVar('verb')) {
 			case 'settings':
 				$this->import('PaperbuzzSettingsForm');
@@ -132,47 +145,43 @@ class PaperbuzzPlugin extends GenericPlugin {
 	/**
 	 * Template manager hook callback.
 	 * Add JavaScript and CSS required for the visualization.
-	 * @param $hookName string
-	 * @param $params array
 	 */
-	function templateManagerDisplayCallback($hookName, $params) {
+	function templateManagerDisplayCallback(string $hookName, array $params)
+	{
 		$templateMgr =& $params[0];
 		$template =& $params[1];
 		$application = Application::get();
 		$applicationName = $application->getName();
 		($applicationName == 'ops' ? $publication = 'preprint' : $publication = 'article');
 		if ($template == 'frontend/pages/' . $publication . '.tpl') {
-		$request = $this->getRequest();
+			$request = $this->getRequest();
 			$baseImportPath = $request->getBaseUrl() . '/' . $this->getPluginPath() . '/' . 'paperbuzzviz' . '/';
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->addJavaScript('d3', 'https://d3js.org/d3.v4.min.js', array('context' => 'frontend-'.$publication.'-view'));
 			$templateMgr->addJavaScript('d3-tip', 'https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js', array('context' => 'frontend-'.$publication.'-view'));
 			$templateMgr->addJavaScript('paperbuzzvizJS', $baseImportPath . 'paperbuzzviz.js', array('context' => 'frontend-'.$publication.'-view'));
 			$templateMgr->addStyleSheet('paperbuzzvizCSS', $baseImportPath . 'assets/css/paperbuzzviz.css', array('context' => 'frontend-'.$publication.'-view'));
-		}		
+		}
 	}
 
-/**
+	/**
 	 * Adds the visualization of the preprint level metrics.
-	 * @param $hookName string
-	 * @param $params array
-	 * @return boolean
 	 */
-	function preprintMainCallback($hookName, $params) {
+	function preprintMainCallback(string $hookName, array $params): bool
+	{
 		$smarty = &$params[1];
 		$output = &$params[2];
 
 		$preprint = $smarty->getTemplateVars('preprint');
 		$this->_article = $preprint;
 
-		$publishedPublications = (array) $preprint->getPublishedPublications();
-		$firstPublication = reset($publishedPublications);
+		$firstPublication = $this->_article->getFirstPublication();
 
 		$request = $this->getRequest();
 		$context = $request->getContext();
 
 		$paperbuzzJsonDecoded = $this->_getPaperbuzzJsonDecoded();
-		$downloadJsonDecoded = array();
+		$downloadJsonDecoded = [];
 		if (!$this->getSetting($context->getId(), 'hideDownloads')) {
 			$downloadJsonDecoded = $this->_getDownloadsJsonDecoded();
 		}
@@ -197,25 +206,22 @@ class PaperbuzzPlugin extends GenericPlugin {
 
 	/**
 	 * Adds the visualization of the article level metrics.
-	 * @param $hookName string
-	 * @param $params array
-	 * @return boolean
 	 */
-	function articleMainCallback($hookName, $params) {
+	function articleMainCallback(string $hookName, array $params): bool
+	{
 		$smarty =& $params[1];
 		$output =& $params[2];
 
 		$article = $smarty->getTemplateVars('article');
 		$this->_article = $article;
 
-		$publishedPublications = (array) $article->getPublishedPublications();
-		$firstPublication = reset($publishedPublications);
+		$firstPublication = $this->_article->getFirstPublication();
 
 		$request = $this->getRequest();
 		$context = $request->getContext();
 
 		$paperbuzzJsonDecoded = $this->_getPaperbuzzJsonDecoded();
-		$downloadJsonDecoded = array();
+		$downloadJsonDecoded = [];
 		if (!$this->getSetting($context->getId(), 'hideDownloads')) {
 			$downloadJsonDecoded = $this->_getDownloadsJsonDecoded();
 		}
@@ -243,9 +249,11 @@ class PaperbuzzPlugin extends GenericPlugin {
 	//
 	/**
 	 * Get Paperbuzz events for the article.
-	 * @return string JSON message
+	 *
+	 * @return array JSON decoded paperbuzz result or an empty array
 	 */
-	function _getPaperbuzzJsonDecoded() {
+	function _getPaperbuzzJsonDecoded(): array
+	{
 		if (!isset($this->_paperbuzzCache)) {
 			$cacheManager = CacheManager::getManager();
 			$this->_paperbuzzCache = $cacheManager->getCache('paperbuzz', $this->_article->getId(), array(&$this, '_paperbuzzCacheMiss'));
@@ -254,27 +262,28 @@ class PaperbuzzPlugin extends GenericPlugin {
 			// Cache is older than one day, erase it.
 			$this->_paperbuzzCache->flush();
 		}
-		$cacheContent = $this->_paperbuzzCache->getContents();
+		$cacheContent = $this->_paperbuzzCache->getContents() ?? [];
 		return $cacheContent;
 	}
 
 	/**
 	* Cache miss callback.
-	* @param $cache Cache
-	* @param $articleId int
-	* @return JSON
+	*
+	* @param FileCache $cache
+	* @return array JSON decoded paperbuzz result or an empty array
 	*/
-	function _paperbuzzCacheMiss($cache, $articleId) {
+	function _paperbuzzCacheMiss(FileCache $cache): array
+	{
 		$request = $this->getRequest();
 		$context = $request->getContext();
 		$apiEmail = $this->getSetting($context->getId(), 'apiEmail');
 
-		$url = PAPERBUZZ_API_URL . 'doi/' . $this->_article->getStoredPubId('doi') . '?email=' . urlencode($apiEmail);
+		$url = self::PAPERBUZZ_API_URL . 'doi/' . $this->_article->getCurrentPublication()->getDoi() . '?email=' . urlencode($apiEmail);
 		// For teting use one of the following two lines instead of the line above and do not forget to clear the cache
-		// $url = PAPERBUZZ_API_URL . 'doi/10.1787/180d80ad-en?email=' . urlencode($apiEmail);
-		// $url = PAPERBUZZ_API_URL . 'doi/10.1371/journal.pmed.0020124?email=' . urlencode($apiEmail);
+		// $url = self::PAPERBUZZ_API_URL . 'doi/10.1787/180d80ad-en?email=' . urlencode($apiEmail);
+		//$url = self::PAPERBUZZ_API_URL . 'doi/10.1371/journal.pmed.0020124?email=' . urlencode($apiEmail);
 
-		$paperbuzzStatsJsonDecoded = array();
+		$paperbuzzStatsJsonDecoded = [];
 		$httpClient = Application::get()->getHttpClient();
 		try {
 			$response = $httpClient->request('GET', $url);
@@ -286,14 +295,15 @@ class PaperbuzzPlugin extends GenericPlugin {
 			$paperbuzzStatsJsonDecoded = @json_decode($resultJson, true);
 		}
 		$cache->setEntireCache($paperbuzzStatsJsonDecoded);
+
 		return $paperbuzzStatsJsonDecoded;
 	}
 
 	/**
 	 * Get OJS download stats for the article.
-	 * @return array
 	 */
-	function _getDownloadsJsonDecoded() {
+	function _getDownloadsJsonDecoded(): array
+	{
 		if (!isset($this->_downloadsCache)) {
 			$cacheManager = CacheManager::getManager();
 			$this->_downloadsCache = $cacheManager->getCache('paperbuzz-downloads', $this->_article->getId(), array(&$this, '_downloadsCacheMiss'));
@@ -302,242 +312,135 @@ class PaperbuzzPlugin extends GenericPlugin {
 			// Cache is older than one day, erase it.
 			$this->_downloadsCache->flush();
 		}
-		$cacheContent = $this->_downloadsCache->getContents();
+		$cacheContent = $this->_downloadsCache->getContents() ?? [];
 		return $cacheContent;
 	}
 
 	/**
 	 * Callback to fill cache with data, if empty.
-	 * @param $cache FileCache
-	 * @param $articleId int
-	 * @return array
 	 */
-	function _downloadsCacheMiss($cache, $articleId) {
-		$downloadStatsByMonth = $this->_getDownloadStats();
-		$downloadStatsByDay = $this->_getDownloadStats(true);
+	function _downloadsCacheMiss(FileCache $cache): array
+	{
+		// Note: monthly and daily stats needs to be separated into different calls, because
+		// we need daily stats only for the first 30 days of the publication.
+		// Stats per year could be calculated from the montly stats, but we use the extra call for this too.
+		$downloadStatsByYear = $this->_getDownloadStats( StatisticsHelper::STATISTICS_DIMENSION_YEAR);
+		$downloadStatsByMonth = $this->_getDownloadStats( StatisticsHelper::STATISTICS_DIMENSION_MONTH);
+		$downloadStatsByDay = $this->_getDownloadStats(StatisticsHelper::STATISTICS_DIMENSION_DAY);
 
-		// We use a helper method to aggregate stats instead of retrieving the needed
-		// aggregation directly from metrics DAO because we need a custom array format.
-		list($totalHtml, $totalPdf, $totalOther, $byDay, $byMonth, $byYear) = $this->_aggregateDownloadStats($downloadStatsByMonth, $downloadStatsByDay);
-		$downloadsArray = $this->_buildDownloadStatsJsonDecoded($totalHtml, $totalPdf, $totalOther, $byDay, $byMonth, $byYear);
+		// Prepare stats data so that they can be overtaken for the custom array format i.e. JSON response.
+		list($total, $byDay, $byMonth, $byYear) = $this->_prepareDownloadStats($downloadStatsByYear, $downloadStatsByMonth, $downloadStatsByDay);
+		$downloadsArray = $this->_buildDownloadStatsJsonDecoded($total, $byDay, $byMonth, $byYear);
 
 		$cache->setEntireCache($downloadsArray);
 		return $downloadsArray;
 	}
 
 	/**
-	 * Get download stats for the passed article id.
-	 * @param $byDay boolean
-	 * @return array MetricsDAO::getMetrics() result.
+	 * Get download stats for the passed article ID, aggregated by the given time interval.
 	 */
-	function _getDownloadStats($byDay = false) {
-		// Pull in download stats for each article galley.
-		$request = $this->getRequest();
-		$context = $request->getContext(); /* @var $context Journal */
-
-		$metricsDao =& DAORegistry::getDAO('MetricsDAO'); /* @var $metricsDao MetricsDAO */
-
-		// Load the metric type constant.
-		PluginRegistry::loadCategory('reports');
-
-		// Only consider the journal's default metric type, mostly ojs::counter
-		$dateColumn = $byDay ? STATISTICS_DIMENSION_DAY : STATISTICS_DIMENSION_MONTH;
-		$metricTypes = array($context->getDefaultMetricType());
-		$columns = array($dateColumn, STATISTICS_DIMENSION_FILE_TYPE);
-		$filter = array(STATISTICS_DIMENSION_ASSOC_TYPE => ASSOC_TYPE_SUBMISSION_FILE, STATISTICS_DIMENSION_SUBMISSION_ID => $this->_article->getId());
-		$orderBy = array($dateColumn => STATISTICS_ORDER_ASC);
-
-		if ($byDay) {
+	function _getDownloadStats(string $timelineInterval): array
+	{
+		$context = $this->getRequest()->getContext();
+        $datePublished = $this->_article->getFirstPublication()->getData('datePublished');
+		$dateStart = date('Y-m-d', strtotime($datePublished));
+		$dateEnd = date('Y-m-d', strtotime('yesterday'));
+		if ($timelineInterval == StatisticsHelper::STATISTICS_DIMENSION_DAY) {
 			// Consider only the first 30 days after the article publication
-			$datePublished = $this->_article->getDatePublished();
-			if (empty($datePublished)) {
-				$issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
-				$issue = $issueDao->getById($this->_article->getIssueId());
-				$datePublished = $issue->getDatePublished();
-			}
-			$startDate = date('Ymd', strtotime($datePublished));
-			$endDate = date('Ymd', strtotime('+30 days', strtotime($datePublished)));
-			// This would be for the last 30 days:
-			//$startDate = date('Ymd', strtotime('-30 days'));
-			//$endDate = date('Ymd');
-			$filter[STATISTICS_DIMENSION_DAY]['from'] = $startDate;
-			$filter[STATISTICS_DIMENSION_DAY]['to'] = $endDate;
+			$dateEnd = date('Y-m-d', strtotime('+30 days', strtotime($datePublished)));
 		}
 
-		return $metricsDao->getMetrics($metricTypes, $columns, $filter, $orderBy);
+		$filters = [
+            'dateStart' => $dateStart,
+            'dateEnd' => $dateEnd,
+            'contextIds' => [$context->getId()],
+			'submissionIds' => [$this->_article->getId()],
+            'assocTypes' => [Application::ASSOC_TYPE_SUBMISSION_FILE]
+        ];
+
+		$metricsQB = Services::get('publicationStats')->getQueryBuilder($filters);
+        $metricsQB = $metricsQB->getSum([$timelineInterval]);
+        $metricsQB->orderBy($timelineInterval, StatisticsHelper::STATISTICS_ORDER_ASC);
+        $data = $metricsQB->get()->toArray();
+		return $data;
 	}
 
 	/**
-	 * Aggregate stats and return data in a format
+	 * Prepare stats to return data in a format
 	 * that can be used to build the statistics JSON response
 	 * for the article page.
-	 * @param $statsByMonth null|array A _getDownloadStats return value.
-	 * @param $statsByDay null|array A _getDownloadStats return value.
-	 * @return array
 	 */
-	function _aggregateDownloadStats($statsByMonth, $statsByDay) {
-		$totalHtml = 0;
-		$totalPdf = 0;
-		$totalOther = 0;
-		$byMonth = array();
-		$byYear = array();
+	function _prepareDownloadStats(array $statsByYear, array $statsByMonth, array $statsByDay): array
+	{
+		$total = 0;
+		$byYear = [];
+		$byMonth = [];
+		$byDay = [];
 
-		if ($statsByMonth) foreach ($statsByMonth as $record) {
-			$views = $record[STATISTICS_METRIC];
-			$fileType = $record[STATISTICS_DIMENSION_FILE_TYPE];
-			switch($fileType) {
-				case STATISTICS_FILE_TYPE_HTML:
-					$totalHtml += $views;
-					break;
-				case STATISTICS_FILE_TYPE_PDF:
-					$totalPdf += $views;
-					break;
-				case STATISTICS_FILE_TYPE_OTHER:
-					$totalOther += $views;
-					break;
-				default:
-					// switch is considered a loop for purposes of continue
-					continue 2;
-			}
-			$year = date('Y', strtotime($record[STATISTICS_DIMENSION_MONTH]. '01'));
-			$month = date('n', strtotime($record[STATISTICS_DIMENSION_MONTH] . '01'));
-			$yearMonth = date('Y-m', strtotime($record[STATISTICS_DIMENSION_MONTH] . '01'));
-
-			if (!isset($byYear[$year])) $byYear[$year] = array();
-			if (!isset($byYear[$year][$fileType])) $byYear[$year][$fileType] = 0;
-			$byYear[$year][$fileType] += $views;
-
-			if (!isset($byMonth[$yearMonth])) $byMonth[$yearMonth] = array();
-			if (!isset($byMonth[$yearMonth][$fileType])) $byMonth[$yearMonth][$fileType] = 0;
-			$byMonth[$yearMonth][$fileType] += $views;
+		foreach ($statsByYear as $yearlyData) {
+			$yearlyData = (array) $yearlyData;
+			$yearEvent = [];
+			$yearEvent['count'] = $yearlyData['metric'];
+			$date = $yearlyData['year'];
+			$yearEvent['date'] = substr($date, 0, 4);
+			$byYear[] = $yearEvent;
+			$total += $yearlyData['metric'];
 		}
 
-		// Get daily download statistics
-		$byDay = array();
-		if ($statsByDay) foreach ($statsByDay as $recordByDay) {
-			$views = $recordByDay[STATISTICS_METRIC];
-			$fileType = $recordByDay[STATISTICS_DIMENSION_FILE_TYPE];
-			$yearMonthDay = date('Y-m-d', strtotime($recordByDay[STATISTICS_DIMENSION_DAY]));
-			if (!isset($byDay[$yearMonthDay])) $byDay[$yearMonthDay] = array();
-			if (!isset($byDay[$yearMonthDay][$fileType])) $byDay[$yearMonthDay][$fileType] = 0;
-			$byDay[$yearMonthDay][$fileType] += $views;
+		foreach ($statsByMonth as $monthlyData) {
+			$monthlyData = (array) $monthlyData;
+			$monthEvent = [];
+			$monthEvent['count'] = $monthlyData['metric'];
+			$date = $monthlyData['month'];
+			$monthEvent['date'] = substr($date, 0, 7);
+			$byMonth[] = $monthEvent;
 		}
 
-		return array($totalHtml, $totalPdf, $totalOther, $byDay, $byMonth, $byYear);
-	}
-
-
-	/**
-	 * Get statistics by time dimension (month or year) for JSON response.
-	 * @param $data array the download statistics in an array (date => file type)
-	 * @param $dimension string day | month | year
-	 * @param $fileType STATISTICS_FILE_TYPE_PDF | STATISTICS_FILE_TYPE_HTML | STATISTICS_FILE_TYPE_OTHER
-	 * @return array|null
-	 */
-	function _getDownloadStatsByTime($data, $dimension, $fileType) {
-		switch ($dimension) {
-			case 'day':
-				$isDayDimension = true;
-				break;
-			case 'month':
-				$isMonthDimension = true;
-				break;
-			case 'year':
-				$isYearDimension = false;
-				break;
-			default:
-				return null;
+		foreach ($statsByDay as $dailyData) {
+			$dailyData = (array) $dailyData;
+			$dayEvent = [];
+			$dayEvent['count'] = $dailyData['metric'];
+			$date = $dailyData['day'];
+			$dayEvent['date'] = $date;
+			$byDay[] = $dayEvent;
 		}
 
-		if (count($data)) {
-			$byTime = array();
-			foreach ($data as $date => $fileTypes) {
-				if ($isDayDimension) {
-					$dateIndex = date('Y-m-d', strtotime($date));
-				} elseif ($isMonthDimension) {
-					$dateIndex = date('Y-m', strtotime($date));
-				} elseif ($isYearDimension) {
-					$dateIndex = date('Y', strtotime($date));
-				}
-				if (isset($fileTypes[$fileType])) {
-					$event = array();
-					$event['count'] = $fileTypes[$fileType];
-					$event['date'] = $dateIndex;
-
-					$byTime[] = $event;
-				}
-			}
-		} else {
-			$byTime = null;
-		}
-		return $byTime;
+		return array($total, $byDay, $byMonth, $byYear);
 	}
 
 	/**
-	 * Build article stats JSON response based
-	 * on parameters returned from _aggregateStats().
-	 * @param $totalHtml array
-	 * @param $totalPdf array
-	 * @param $totalOther array
-	 * @param $byDay array
-	 * @param $byMonth array
-	 * @param $byYear array
-	 * @return array ready for JSON encoding
+	 * Build article download statistics array ready for JSON response
 	 */
-	function _buildDownloadStatsJsonDecoded($totalHtml, $totalPdf, $totalOther, $byDay, $byMonth, $byYear) {
-		$response = array();
-		$eventPdf = array();
-		if ($totalPdf > 0) {
-			$eventPdf['events'] = null;
-			$eventPdf['events_count'] = $totalPdf;
-			$eventPdf['events_count_by_day'] = $this->_getDownloadStatsByTime($byDay, 'day', STATISTICS_FILE_TYPE_PDF);
-			$eventPdf['events_count_by_month'] = $this->_getDownloadStatsByTime($byMonth, 'month', STATISTICS_FILE_TYPE_PDF);
-			$eventPdf['events_count_by_year'] = $this->_getDownloadStatsByTime($byYear, 'year', STATISTICS_FILE_TYPE_PDF);
-			$eventPdf['source']['display_name'] = __('plugins.generic.paperbuzz.sourceName.pdf');
-			$eventPdf['source_id'] = 'pdf';
-			$response[] = $eventPdf;
+	function _buildDownloadStatsJsonDecoded(int $total, array $byDay, array $byMonth, array $byYear): array
+	{
+		$response = [];
+		$event = [];
+		if ($total > 0) {
+			$event['events'] = null;
+			$event['events_count'] = $total;
+			$event['events_count_by_day'] = $byDay;
+			$event['events_count_by_month'] = $byMonth;
+			$event['events_count_by_year'] = $byYear;
+			$event['source']['display_name'] = __('plugins.generic.paperbuzz.sourceName.fileDownloads');
+			$event['source_id'] = 'fileDownloads';
+			$response[] = $event;
 		}
-
-		$eventHtml = array();
-		if ($totalHtml > 0) {
-			$eventHtml['events'] = null;
-			$eventHtml['events_count'] = $totalHtml;
-			$eventHtml['events_count_by_day'] = $this->_getDownloadStatsByTime($byDay, 'day', STATISTICS_FILE_TYPE_HTML);
-			$eventHtml['events_count_by_month'] = $this->_getDownloadStatsByTime($byMonth, 'month', STATISTICS_FILE_TYPE_HTML);
-			$eventHtml['events_count_by_year'] = $this->_getDownloadStatsByTime($byYear, 'year', STATISTICS_FILE_TYPE_HTML);
-			$eventHtml['source']['display_name'] = __('plugins.generic.paperbuzz.sourceName.html');
-			$eventHtml['source_id'] = 'html';
-			$response[] = $eventHtml;
-		}
-
-		$eventOther = array();
-		if ($totalOther > 0) {
-			$eventOther['events'] = null;
-			$eventOther['events_count'] = $totalOther;
-			$eventOther['events_count_by_day'] = $this->_getDownloadStatsByTime($byDay, 'day', STATISTICS_FILE_TYPE_OTHER);
-			$eventOther['events_count_by_month'] = $this->_getDownloadStatsByTime($byMonth, 'month', STATISTICS_FILE_TYPE_OTHER);
-			$eventOther['events_count_by_year'] = $this->_getDownloadStatsByTime($byYear, 'year', STATISTICS_FILE_TYPE_OTHER);
-			$eventOther['source']['display_name'] = __('plugins.generic.paperbuzz.sourceName.other');
-			$eventOther['source_id'] = 'other';
-			$response[] = $eventOther;
-		}
-
 		return $response;
 	}
 
 	/**
 	 * Build the required article information for the
 	 * metrics visualization.
-	 * @param $eventsData array (optional) Decoded JSON result from Paperbuzz
-	 * @param $downloadData array (optional) Download stats data ready for JSON encoding
+	 *
+	 * @param array $eventsData Decoded JSON result from Paperbuzz
+	 * @param array $downloadData Download stats data ready for JSON encoding
 	 * @return string JSON response
 	 */
-	function _buildRequiredJson($eventsData = array(), $downloadData = array()) {
-		if (empty($eventsData['altmetrics_sources'])) $eventsData['altmetrics_sources'] = array();
+	function _buildRequiredJson(array $eventsData = [], array $downloadData = []): string
+	{
+		if (empty($eventsData['altmetrics_sources'])) $eventsData['altmetrics_sources'] = [];
 		$allData = array_merge($downloadData, $eventsData['altmetrics_sources']);
 		$eventsData['altmetrics_sources'] = $allData;
 		return json_encode($eventsData);
 	}
 }
-
-?>
