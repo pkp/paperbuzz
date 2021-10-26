@@ -1,8 +1,67 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-10-26 08:07+0000\n"
+"Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
+"Language-Team: Malay <http://translate.pkp.sfu.ca/projects/plugins/paperbuzz/"
+"ms/>\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Paparan format lain"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "Paparan HTML"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "Paparan PDF"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr ""
+"Sembunyikan muat turun artikel (hanya paparkan metrik daripada Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Muat turun"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Tunjukkan padat"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Tunjukkan graf"
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Paparkan graf yang menunjukkan garis masa penggunaan (lebih besar) atau "
+"hanya kiraan (lebih kecil)"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "E-mel diperlukan."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr ""
+"Anda mesti memberikan alamat e-mel untuk menggunakan perkhidmatan Paperbuzz."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "E-mel"
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "Tetapan"
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "Metrik Memuatkan..."
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Metrik"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr ""
+"Plugin untuk dipaparkan dalam metrik penggunaan pada halaman abstrak. Jurnal "
+"yang tidak menetapkan DOI hanya akan memaparkan metrik muat turun."
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "Plugin Paperbuzz"
