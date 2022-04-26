@@ -26,15 +26,6 @@ msgstr "Carregant mètriques ..."
 msgid "plugins.generic.paperbuzz.settings"
 msgstr "Configuració"
 
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Visualitzacions d'altres formats"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "Visualitzacions de l'HTML"
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "Visualitzacions del PDF"
-
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr ""
 "Ocultar les descàrregues d'articles (només mostrar les mètriques de "

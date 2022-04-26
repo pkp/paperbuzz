@@ -49,12 +49,3 @@ msgstr "Downloads"
 
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "Nascondi download di articoli (visualizza solo le cifre chiave di Paperbuzz)."
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "Viste PDF"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "Viste HTML"
-
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Altri formati"

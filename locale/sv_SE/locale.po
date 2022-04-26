@@ -11,15 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Visningar i andra format"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "HTML-visningar"
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "PDF-visningar"
-
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr ""
 "Dölj antalet nedladdningar av artiklar (visa bara statistik från Paperbuzz)."

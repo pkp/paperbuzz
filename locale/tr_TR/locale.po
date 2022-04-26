@@ -23,15 +23,6 @@ msgstr "Ölçüm Çağrılıyor ..."
 msgid "plugins.generic.paperbuzz.settings"
 msgstr "Ayarlar"
 
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Diğer format görüntüleme"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "HTML görüntüleme"
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "PDF görüntüleme"
-
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr ""
 "Makale indirme istatistiklerini gizle (yalnızca Paperbuzz'dan gelen "

@@ -52,12 +52,3 @@ msgstr "Downloads"
 
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "Artikel-Downloads ausblenden (nur Anzeige von Kennzahlen aus Paperbuzz)."
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "PDF-Ansichten"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "HTML-Ansichten"
-
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Andere Formate"
