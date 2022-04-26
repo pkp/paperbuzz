@@ -49,12 +49,3 @@ msgstr "Téléchargements"
 
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "Masquer les téléchargements d'articles (afficher uniquement les métriques de Paperbuzz)."
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "Vues PDF"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "Vues HTML"
-
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Vues d'autres formats"

@@ -28,15 +28,6 @@ msgstr "Metriky se nahrávají ..."
 msgid "plugins.generic.paperbuzz.settings"
 msgstr "Nastavení"
 
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Počty zobrazení v ostatních formátech"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "Počty náhledů HTML"
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "Počty náhledů PDF"
-
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "Nezobrazovat počty stažení článků (ukazovat pouze metriky Paperbuzz)."
 

@@ -26,15 +26,6 @@ msgstr "Carregando Métricas ..."
 msgid "plugins.generic.paperbuzz.settings"
 msgstr "Configurações"
 
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Outros formatos de visualizações"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "Visualizações HTML"
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "Visualizações em PDF"
-
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "Ocultar artigos baixados (exiba apenas as métricas do Paperbuzz)."
 

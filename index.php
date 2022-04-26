@@ -21,4 +21,3 @@ require_once('PaperbuzzPlugin.inc.php');
 
 return new PaperbuzzPlugin();
 
-?>
