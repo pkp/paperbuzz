@@ -49,12 +49,3 @@ msgstr "التنزيلات"
 
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "إخفاء تنزيلات المقالة (الاقتصار على إحصائيات Paperbuzz)."
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "معاينات PDF"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "معاينات HTML"
-
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "معاينات الصيغ الأخرى"

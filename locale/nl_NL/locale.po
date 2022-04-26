@@ -26,15 +26,6 @@ msgstr "Metrics worden geladen ..."
 msgid "plugins.generic.paperbuzz.settings"
 msgstr "Instellingen"
 
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Andere formaatweergaven"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "HTML-weergaven"
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "PDF-weergaven"
-
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "Verberg artikeldownloads (alleen statistieken van Paperbuzz weergeven)."
 

@@ -52,12 +52,3 @@ msgstr "Latauksia"
 
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "Piilota artikkelin latausmäärät, näytä vain Paperbuzz-palvelun tilastot."
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "PDF-latauksia"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "HTML-latauksia"
-
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Muiden tiedostomuotojen latauksia"
