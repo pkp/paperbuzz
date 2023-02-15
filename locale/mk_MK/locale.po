@@ -11,15 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Прегледи на останати формати"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "HTML прегледи"
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "PDF прегледи"
-
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr ""
 "Скријте ги превземањата на трудот (прикажете ги само метриките од Paperbuzz)."

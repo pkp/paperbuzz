@@ -11,15 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Άλλες μορφές προβολής"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "Προβολή σε HTML"
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "Προβολή σε PDF"
-
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "Απόκρυψη λήψεων άρθρων (εμφανίζονται μόνο μετρήσεις από το Paperbuzz)."
 

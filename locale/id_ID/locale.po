@@ -11,15 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Jumlah akses format lain"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "Jumlah akses HTML"
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "Jumlah akses PDF"
-
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "Sembunyikan unduhan artikel (cukup tampilkan metrik dari Paperbuzz)."
 

@@ -30,15 +30,6 @@ msgstr "Chargement des statistiques…"
 msgid "plugins.generic.paperbuzz.settings"
 msgstr "Paramètres"
 
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Affichages d'autres formats"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "Affichages HTML"
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "Affichages PDF"
-
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr ""
 "Masquer les téléchargements d'articles (afficher uniquement les statistiques "

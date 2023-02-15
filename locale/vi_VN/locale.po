@@ -11,15 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Chế độ xem định dạng khác"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "Lượt xem HTML"
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "Lượt xem PDF"
-
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "Ẩn tải xuống bài viết (chỉ hiển thị số liệu từ Paperbuzz)."
 
