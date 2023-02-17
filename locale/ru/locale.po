@@ -27,15 +27,6 @@ msgstr "Загрузка метрик ..."
 msgid "plugins.generic.paperbuzz.settings"
 msgstr "Настройки"
 
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Просмотры других форматов"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "Просмотры HTML"
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "Просмотры PDF"
-
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "Скрыть скачивания статей (показывать только метрики из Paperbuzz)."
 

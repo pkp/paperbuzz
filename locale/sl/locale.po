@@ -12,15 +12,6 @@ msgstr ""
 "n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Ogledi drugih formatov"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "Ogledov HTML"
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "Ogledov PDF"
-
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "Skrij število prenosov (pokaži le metrike iz Paperbuzz)."
 

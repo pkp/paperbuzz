@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-04-08 09:55+0000\n"
+"Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
+"Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/plugins/"
+"paperbuzz/ka_GE/>\n"
+"Language: ka_GE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "პარამეტრები"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "ელფოსტა"
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "ჩამოტვირთვები"
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "Paperbuzz პლაგინი"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr ""
+"პლაგინი გამოიყენეთ მეტრიკაში აბსტრაქტის გვერდზე. ჟურნალები, რომლებიც არ "
+"ანიჭებენ DOI-ს, აჩვენებენ მხოლოდ ჩამოტვირთვის საზომებს."
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "მეტრიკები"
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "მეტრიკის ჩატვირთვა..."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr ""
+"თქვენ უნდა მიუთითოთ ელფოსტის მისამართი, რათა გამოიყენოთ Paperbuzz სერვისი."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "ელფოსტა აუცილებელია."
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"აჩვენეთ გრაფიკები, რომლებიც აჩვენებს გამოყენების ვადებს (უფრო დიდი) ან "
+"მხოლოდ რიცხვებს (უფრო მცირე)"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "გრაფიკების ჩვენება"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "აჩვენეთ კომპაქტურად"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr "დამალეთ სტატიების ჩამოტვირთვა (მხოლოდ Paperbuzz-ის მეტრიკის ჩვენება)."
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "PDF ხედები"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "HTML ხედები"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "სხვა ფორმატის ხედები"

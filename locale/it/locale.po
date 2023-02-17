@@ -12,10 +12,12 @@ msgstr ""
 "Language: \n"
 
 msgid "plugins.generic.paperbuzz.displayName"
-msgstr "Paperbuzz Plugin"
+msgstr "Plugin Paperbuzz"
 
 msgid "plugins.generic.paperbuzz.description"
-msgstr "Plugin Article Level Metrics. Per utilizzare i servizi Paperbuzz, è necessario che gli articoli abbiano DOI registrati."
+msgstr ""
+"Plugin Article Level Metrics. Per utilizzare i servizi Paperbuzz, è "
+"necessario che gli articoli abbiano DOI registrati."
 
 msgid "plugins.generic.paperbuzz.metrics"
 msgstr "Metriche"
@@ -30,13 +32,17 @@ msgid "plugins.generic.paperbuzz.settings.apiEmail"
 msgstr "Indirizzo E-mail"
 
 msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
-msgstr "Per utilizzare il servizio Paperbuzz è necessario fornire un indirizzo e-mail."
+msgstr ""
+"Per utilizzare il servizio Paperbuzz è necessario fornire un indirizzo e-"
+"mail."
 
 msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
 msgstr "È richiesto un indirizzo e-mail."
 
 msgid "plugins.generic.paperbuzz.settings.graph.description"
-msgstr "Selezionare una vista: Grafica della vita utile (maggiore) o numero di utilizzi (minore) "
+msgstr ""
+"Selezionare una vista: Grafica della vita utile (maggiore) o numero di "
+"utilizzi (minore)"
 
 msgid "plugins.generic.paperbuzz.settings.showGraph"
 msgstr "Grafica"
@@ -48,7 +54,8 @@ msgid "plugins.generic.paperbuzz.settings.downloads"
 msgstr "Downloads"
 
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
-msgstr "Nascondi download di articoli (visualizza solo le cifre chiave di Paperbuzz)."
+msgstr ""
+"Nascondi download di articoli (visualizza solo le cifre chiave di Paperbuzz)."
 
 msgid "plugins.generic.paperbuzz.sourceName.pdf"
 msgstr "Viste PDF"

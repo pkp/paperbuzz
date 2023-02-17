@@ -3,8 +3,8 @@
 /**
  * @file plugins/generic/paperbuzz/PaperbuzzSettingsForm.inc.php
  *
- * Copyright (c) 2013-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2013-2023 Simon Fraser University
+ * Copyright (c) 2003-2023 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PaperbuzzSettingsForm
@@ -13,22 +13,28 @@
  * @brief Form for journal managers to modify Paperbuzz plugin settings
  */
 
+namespace APP\plugins\generic\paperbuzz;
 
-import('lib.pkp.classes.form.Form');
+use PKP\form\Form;
+use APP\core\Application;
+use APP\template\TemplateManager;
+use PKP\form\validation\FormValidator;
+use PKP\form\validation\FormValidatorPost;
+use PKP\form\validation\FormValidatorCSRF;
 
 class PaperbuzzSettingsForm extends Form {
 
-	/** @var $plugin PaperbuzzPlugin */
-	var $plugin;
+	protected PaperbuzzPlugin $plugin;
 
 	/**
 	 * Constructor
-	 * @param $plugin PaperbuzzPlugin
+	 * @param PaperbuzzPlugin $plugin
 	 */
-	function __construct($plugin) {
+	function __construct($plugin)
+	{
 		$this->plugin = $plugin;
 		parent::__construct($plugin->getTemplateResource('settingsForm.tpl'));
-		$this->addCheck(new FormValidator($this, 'apiEmail', FORM_VALIDATOR_REQUIRED_VALUE, 'plugins.generic.paperbuzz.settings.apiEmail.required'));
+		$this->addCheck(new FormValidator($this, 'apiEmail', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'plugins.generic.paperbuzz.settings.apiEmail.required'));
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 	}
@@ -36,7 +42,8 @@ class PaperbuzzSettingsForm extends Form {
 	/**
 	 * @copydoc Form::initData()
 	 */
-	function initData() {
+	function initData()
+	{
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		if ($context) {
@@ -44,7 +51,7 @@ class PaperbuzzSettingsForm extends Form {
 			foreach($this->getFormFields() as $fieldName => $fieldType) {
 				$fieldValue = $plugin->getSetting($context->getId(), $fieldName);
 				if ($fieldName == 'apiEmail' && empty($fieldValue)) {
-					$fieldValue = $context->getSetting('supportEmail');
+					$fieldValue = $context->getData('supportEmail');
 				}
 				$this->setData($fieldName, $fieldValue);
 			}
@@ -54,14 +61,16 @@ class PaperbuzzSettingsForm extends Form {
 	/**
 	 * @copydoc Form::readInputData()
 	 */
-	function readInputData() {
+	function readInputData()
+	{
 		$this->readUserVars(array_keys($this->getFormFields()));
 	}
 
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request, $template = NULL, $display = false) {
+	function fetch($request, $template = NULL, $display = false)
+	{
 		$plugin = $this->plugin;
 		$showMiniOptions = array(
 			false => __('plugins.generic.paperbuzz.settings.showGraph'),
@@ -77,7 +86,8 @@ class PaperbuzzSettingsForm extends Form {
 	 * Save settings.
 	 * @copydoc Form::execute()
 	 */
-	function execute(...$functionArgs) {
+	function execute(...$functionArgs)
+	{
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		if ($context) {
@@ -92,13 +102,12 @@ class PaperbuzzSettingsForm extends Form {
 	 * Get form fields
 	 * @return array (field name => field type)
 	 */
-	function getFormFields() {
-		return array(
+	function getFormFields(): array
+	{
+		return [
 			'apiEmail' => 'string',
 			'hideDownloads' => 'bool',
 			'showMini' => 'bool'
-		);
+		];
 	}
 }
-
-?>

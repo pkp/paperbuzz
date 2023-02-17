@@ -1,9 +1,10 @@
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
-"PO-Revision-Date: 2020-08-05 15:48+0000\n"
+"PO-Revision-Date: 2023-02-16 16:48+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/plugins/paperbuzz/"
 "cs_CZ/>\n"
@@ -12,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "plugins.generic.paperbuzz.displayName"
 msgstr "Plugin Paperbuzz"
@@ -27,15 +28,6 @@ msgstr "Metriky se nahrávají ..."
 
 msgid "plugins.generic.paperbuzz.settings"
 msgstr "Nastavení"
-
-msgid "plugins.generic.paperbuzz.sourceName.other"
-msgstr "Počty zobrazení v ostatních formátech"
-
-msgid "plugins.generic.paperbuzz.sourceName.html"
-msgstr "Počty náhledů HTML"
-
-msgid "plugins.generic.paperbuzz.sourceName.pdf"
-msgstr "Počty náhledů PDF"
 
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "Nezobrazovat počty stažení článků (ukazovat pouze metriky Paperbuzz)."
@@ -65,3 +57,6 @@ msgstr "E-mail"
 
 msgid "plugins.generic.paperbuzz.metrics"
 msgstr "Metriky"
+
+msgid "plugins.generic.paperbuzz.sourceName.fileDownloads"
+msgstr "Stažení souborů"

@@ -1,8 +1,8 @@
 {**
  * plugins/generic/paperbuzz/templates/settingsForm.tpl
  *
- * Copyright (c) 2013-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2013-2023 Simon Fraser University
+ * Copyright (c) 2003-2023 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Paperbuzz plugin settings
