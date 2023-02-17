@@ -1,0 +1,68 @@
+# Cyril Kamburov <cc@intermedia.bg>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-04-03 12:58+0000\n"
+"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
+"Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/plugins/"
+"paperbuzz/bg_BG/>\n"
+"Language: bg_BG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Метрики"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr ""
+"Добавката (плъгин) за показване в показателите за използване на абстрактна "
+"страница. Списанията, които не присвояват DOI, ще показват само показатели "
+"за изтегляне."
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "Добавка (плъгин) Paperbuzz"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Прегледи на други формати"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "Прегледи на HTML"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "Прегледи на PDF"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr ""
+"Скриване на изтегляния на статии (показване само на показатели от Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Изтегляния"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Показване компактно"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Показване на графики"
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Показване на графики, показващи времевата линия на употреба (по-големи) или "
+"само броя (по-малки)"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "Изисква се имейл."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr ""
+"Трябва да предоставите имейл адрес, за да използвате услугата Paperbuzz."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "Имейл"
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "Настройки"
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "Зареждане на метрики ..."

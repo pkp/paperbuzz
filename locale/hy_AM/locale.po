@@ -1,0 +1,71 @@
+# Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-02-17 20:34+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
+"Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/plugins/"
+"paperbuzz/hy_AM/>\n"
+"Language: hy_AM\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Այլ ձևաչափով դիտումներ"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "HTML դիտումներ"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "PDF դիտումներ"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr ""
+"Թաքցնել հոդվածների ներբեռնումները (ցուցադրել միայն Paperbuzz-ի չափումները):"
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Ներբեռնումներ"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Ցույց տալ կոմպակտ"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Ցույց տալ գրաֆիկները"
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Արտածել գրաֆիկները, որոնք ցույց են տալիս օգտագործման ժամանակացույցը (ավելի "
+"մեծ) կամ միայն հաշվարկները (ավելի փոքր)"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "Պահանջվում է էլ․ հասցե:"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr ""
+"Paperbuzz ծառայությունից օգտվելու համար պետք է էլ․ փոստի հասցե տրամադրեք:"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "Էլ․ նամակ"
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "Կարգավորումներ"
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "Չափիչները բեռնվում են ..."
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Չափիչներ"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr ""
+"Փլագին` ամփոփման էջում օգտագործման չափիչները ցուցադրելու համար: Ամսագրերը, "
+"որոնք չեն տրամադրում DOI, կցուցադրեն միայն ներբեռնման չափումներ:"
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "Paperbuzz փլագին"
+
+msgid "plugins.generic.paperbuzz.sourceName.fileDownloads"
+msgstr "Նիշքերի ներբեռնումներ"

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2021-01-28 11:53+0000\n"
-"Last-Translator: FRITT, University of Oslo Library <fritt-"
-"info@journals.uio.no>\n"
+"Last-Translator: FRITT, University of Oslo Library <fritt-info@journals.uio."
+"no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "plugins/paperbuzz/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -49,8 +49,17 @@ msgstr "Statistikk"
 
 msgid "plugins.generic.paperbuzz.description"
 msgstr ""
-"Programtillegg som viser besøksstatistikk på abstrakt-siden. Tidsskrifter "
+"Programtillegg som viser besøksstatistikk på sammendrag-siden. Tidsskrifter "
 "som ikke tildeler DOI vil kun se nedlastingsstatistikk."
 
 msgid "plugins.generic.paperbuzz.displayName"
 msgstr "Paperbuzz programtillegg"
+
+msgid "plugins.generic.paperbuzz.sourceName.other"
+msgstr "Visninger i andre format"
+
+msgid "plugins.generic.paperbuzz.sourceName.html"
+msgstr "HTML-visninger"
+
+msgid "plugins.generic.paperbuzz.sourceName.pdf"
+msgstr "PDF-visninger"
