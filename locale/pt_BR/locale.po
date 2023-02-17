@@ -1,9 +1,10 @@
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19T00:31:49+00:00\n"
-"PO-Revision-Date: 2020-06-24 19:39+0000\n"
+"PO-Revision-Date: 2023-02-18 21:48+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "plugins/paperbuzz/pt_BR/>\n"
@@ -12,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "plugins.generic.paperbuzz.displayName"
 msgstr "Plugin Paperbuzz"
@@ -54,3 +55,6 @@ msgstr "E-mail"
 
 msgid "plugins.generic.paperbuzz.metrics"
 msgstr "Métricas"
+
+msgid "plugins.generic.paperbuzz.sourceName.fileDownloads"
+msgstr "Download de arquivos"
