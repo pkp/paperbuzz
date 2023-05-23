@@ -1,5 +1,5 @@
 {**
- * plugins/generic/paperbuzz/templates/settingsForm.tpl
+ * templates/settingsForm.tpl
  *
  * Copyright (c) 2013-2023 Simon Fraser University
  * Copyright (c) 2003-2023 John Willinsky

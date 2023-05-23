@@ -1,15 +1,13 @@
 <?php
 
 /**
- * @file plugins/generic/paperbuzz/PaperbuzzPlugin.inc.php
+ * @file PaperbuzzPlugin.inc.php
  *
  * Copyright (c) 2013-2023 Simon Fraser University
  * Copyright (c) 2003-2023 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PaperbuzzPlugin
- * @ingroup plugins_generic_paperbuzz
- *
  * @brief Paperbuzz plugin class
  */
 
@@ -42,7 +40,7 @@ class PaperbuzzPlugin extends GenericPlugin {
 	/**
 	 * @copydoc Plugin::register()
 	 */
-	function register($category, $path, $mainContextId = null)
+	function register($category, $path, $mainContextId = null): bool
 	{
 		$success = parent::register($category, $path, $mainContextId);
 		if (!Config::getVar('general', 'installed')) return false;
@@ -66,7 +64,7 @@ class PaperbuzzPlugin extends GenericPlugin {
 	/**
 	 * @copydoc Plugin::getName()
 	 */
-	function getName()
+	function getName(): string
 	{
 		return 'PaperbuzzPlugin';
 	}
@@ -74,7 +72,7 @@ class PaperbuzzPlugin extends GenericPlugin {
 	/**
 	 * @copydoc Plugin::getDisplayName()
 	 */
-	function getDisplayName()
+	function getDisplayName(): string
 	{
 		return __('plugins.generic.paperbuzz.displayName');
 	}
@@ -82,7 +80,7 @@ class PaperbuzzPlugin extends GenericPlugin {
 	/**
 	 * @copydoc Plugin::getDescription()
 	 */
-	function getDescription()
+	function getDescription(): string
 	{
 		return __('plugins.generic.paperbuzz.description');
 	}
@@ -90,7 +88,7 @@ class PaperbuzzPlugin extends GenericPlugin {
 	/**
 	 * @copydoc Plugin::getActions()
 	 */
-	public function getActions($request, $actionArgs)
+	public function getActions($request, $actionArgs): array
 	{
 		$actions = parent::getActions($request, $actionArgs);
 		// Settings are only context-specific
@@ -98,26 +96,21 @@ class PaperbuzzPlugin extends GenericPlugin {
 			return $actions;
 		}
 		$router = $request->getRouter();
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$linkAction = new LinkAction(
-			'settings',
-			new AjaxModal(
-				$router->url(
-					$request,
-					null,
-					null,
-					'manage',
-					null,
-					array(
+			id: 'settings',
+			actionRequest: new AjaxModal(
+				url: $router->url(
+					request: $request,
+					op: 'manage',
+					params: [
 						'verb' => 'settings',
 						'plugin' => $this->getName(),
 						'category' => 'generic'
-					)
+					]
 				),
-				$this->getDisplayName()
+				title: $this->getDisplayName()
 			),
-			__('manager.plugins.settings'),
-			null
+			title: __('manager.plugins.settings')
 		);
 		array_unshift($actions, $linkAction);
 		return $actions;
@@ -126,7 +119,7 @@ class PaperbuzzPlugin extends GenericPlugin {
 	/**
 	 * @copydoc Plugin::manage()
 	 */
-	public function manage($args, $request)
+	public function manage($args, $request): JSONMessage
 	{
 		switch ($request->getUserVar('verb')) {
 			case 'settings':
@@ -148,9 +141,11 @@ class PaperbuzzPlugin extends GenericPlugin {
 	 * Template manager hook callback.
 	 * Add JavaScript and CSS required for the visualization.
 	 */
-	function templateManagerDisplayCallback(string $hookName, array $params)
+	function templateManagerDisplayCallback(string $hookName, array $params): bool
 	{
+		/** @var PKPTemplateManager $templateMgr */
 		$templateMgr =& $params[0];
+		/** @var string $template */
 		$template =& $params[1];
 		$application = Application::get();
 		$applicationName = $application->getName();
@@ -164,6 +159,7 @@ class PaperbuzzPlugin extends GenericPlugin {
 			$templateMgr->addJavaScript('paperbuzzvizJS', $baseImportPath . 'paperbuzzviz.js', array('context' => 'frontend-'.$publication.'-view'));
 			$templateMgr->addStyleSheet('paperbuzzvizCSS', $baseImportPath . 'assets/css/paperbuzzviz.css', array('context' => 'frontend-'.$publication.'-view'));
 		}
+		return Hook::CONTINUE;
 	}
 
 	/**
@@ -171,13 +167,17 @@ class PaperbuzzPlugin extends GenericPlugin {
 	 */
 	function preprintMainCallback(string $hookName, array $params): bool
 	{
+		/** @var \Smarty $smarty */
 		$smarty = &$params[1];
+		/** @var string $output */
 		$output = &$params[2];
 
+		/** @var Submission $preprint */
 		$preprint = $smarty->getTemplateVars('preprint');
 		$this->_article = $preprint;
 
 		$originalPublication = $this->_article->getOriginalPublication();
+		if (!$originalPublication) return Hook::CONTINUE;
 
 		$request = $this->getRequest();
 		$context = $request->getContext();
@@ -203,7 +203,7 @@ class PaperbuzzPlugin extends GenericPlugin {
 			$output .= $metricsHTML;
 		}
 
-		return false;
+		return Hook::CONTINUE;
 	}
 
 	/**
@@ -211,13 +211,17 @@ class PaperbuzzPlugin extends GenericPlugin {
 	 */
 	function articleMainCallback(string $hookName, array $params): bool
 	{
+		/** @var \Smarty $smarty */
 		$smarty =& $params[1];
+		/** @var string $output */
 		$output =& $params[2];
 
+		/** @var Submission $article */
 		$article = $smarty->getTemplateVars('article');
 		$this->_article = $article;
 
 		$originalPublication = $this->_article->getOriginalPublication();
+		if (!$originalPublication) return Hook::CONTINUE;
 
 		$request = $this->getRequest();
 		$context = $request->getContext();
@@ -243,7 +247,7 @@ class PaperbuzzPlugin extends GenericPlugin {
 			$output .= $metricsHTML;
 		}
 
-		return false;
+		return Hook::CONTINUE;
 	}
 
 	//
@@ -258,6 +262,7 @@ class PaperbuzzPlugin extends GenericPlugin {
 	{
 		if (!isset($this->_paperbuzzCache)) {
 			$cacheManager = CacheManager::getManager();
+			/** @var FileCache $_paperbuzzCache */
 			$this->_paperbuzzCache = $cacheManager->getCache('paperbuzz', $this->_article->getId(), array(&$this, '_paperbuzzCacheMiss'));
 		}
 		if (time() - $this->_paperbuzzCache->getCacheTime() > 60 * 60 * 24) {
@@ -283,7 +288,7 @@ class PaperbuzzPlugin extends GenericPlugin {
 		$url = self::PAPERBUZZ_API_URL . 'doi/' . $this->_article->getCurrentPublication()->getDoi() . '?email=' . urlencode($apiEmail);
 		// For teting use one of the following two lines instead of the line above and do not forget to clear the cache
 		// $url = self::PAPERBUZZ_API_URL . 'doi/10.1787/180d80ad-en?email=' . urlencode($apiEmail);
-		//$url = self::PAPERBUZZ_API_URL . 'doi/10.1371/journal.pmed.0020124?email=' . urlencode($apiEmail);
+		// $url = self::PAPERBUZZ_API_URL . 'doi/10.1371/journal.pmed.0020124?email=' . urlencode($apiEmail);
 
 		$paperbuzzStatsJsonDecoded = [];
 		$httpClient = Application::get()->getHttpClient();
@@ -308,6 +313,7 @@ class PaperbuzzPlugin extends GenericPlugin {
 	{
 		if (!isset($this->_downloadsCache)) {
 			$cacheManager = CacheManager::getManager();
+			/** @var FileCache $_downloadsCache */
 			$this->_downloadsCache = $cacheManager->getCache('paperbuzz-downloads', $this->_article->getId(), array(&$this, '_downloadsCacheMiss'));
 		}
 		if (time() - $this->_downloadsCache->getCacheTime() > 60 * 60 * 24) {
@@ -326,8 +332,8 @@ class PaperbuzzPlugin extends GenericPlugin {
 		// Note: monthly and daily stats needs to be separated into different calls, because
 		// we need daily stats only for the first 30 days of the publication.
 		// Stats per year could be calculated from the montly stats, but we use the extra call for this too.
-		$downloadStatsByYear = $this->_getDownloadStats( StatisticsHelper::STATISTICS_DIMENSION_YEAR);
-		$downloadStatsByMonth = $this->_getDownloadStats( StatisticsHelper::STATISTICS_DIMENSION_MONTH);
+		$downloadStatsByYear = $this->_getDownloadStats(StatisticsHelper::STATISTICS_DIMENSION_YEAR);
+		$downloadStatsByMonth = $this->_getDownloadStats(StatisticsHelper::STATISTICS_DIMENSION_MONTH);
 		$downloadStatsByDay = $this->_getDownloadStats(StatisticsHelper::STATISTICS_DIMENSION_DAY);
 
 		// Prepare stats data so that they can be overtaken for the custom array format i.e. JSON response.

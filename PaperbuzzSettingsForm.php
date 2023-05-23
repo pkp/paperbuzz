@@ -1,15 +1,13 @@
 <?php
 
 /**
- * @file plugins/generic/paperbuzz/PaperbuzzSettingsForm.inc.php
+ * @file PaperbuzzSettingsForm.inc.php
  *
  * Copyright (c) 2013-2023 Simon Fraser University
  * Copyright (c) 2003-2023 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PaperbuzzSettingsForm
- * @ingroup plugins_generic_paperbuzz
- *
  * @brief Form for journal managers to modify Paperbuzz plugin settings
  */
 
@@ -42,7 +40,7 @@ class PaperbuzzSettingsForm extends Form {
 	/**
 	 * @copydoc Form::initData()
 	 */
-	function initData()
+	function initData(): void
 	{
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
@@ -61,7 +59,7 @@ class PaperbuzzSettingsForm extends Form {
 	/**
 	 * @copydoc Form::readInputData()
 	 */
-	function readInputData()
+	function readInputData(): void
 	{
 		$this->readUserVars(array_keys($this->getFormFields()));
 	}
@@ -69,7 +67,7 @@ class PaperbuzzSettingsForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request, $template = NULL, $display = false)
+	function fetch($request, $template = NULL, $display = false): string
 	{
 		$plugin = $this->plugin;
 		$showMiniOptions = array(
@@ -86,7 +84,7 @@ class PaperbuzzSettingsForm extends Form {
 	 * Save settings.
 	 * @copydoc Form::execute()
 	 */
-	function execute(...$functionArgs)
+	function execute(...$functionArgs): void
 	{
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();

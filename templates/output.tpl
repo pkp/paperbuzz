@@ -1,5 +1,5 @@
 {**
- * plugins/generic/paperbuzz/templates/output.tpl
+ * templates/output.tpl
  *
  * Copyright (c) 2013-2023 Simon Fraser University
  * Copyright (c) 2003-2023 John Willinsky

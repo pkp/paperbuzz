@@ -14,8 +14,8 @@
 <version>
 	<application>paperbuzz</application>
 	<type>plugins.generic</type>
-	<release>1.0.3.2</release>
-	<date>2023-02-15</date>
+	<release>2.0.0.0</release>
+	<date>2023-05-23</date>
 	<lazy-load>1</lazy-load>
 	<class>PaperbuzzPlugin</class>
 </version>
