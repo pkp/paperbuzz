@@ -1,8 +1,59 @@
 # Weblate Admin <alec@smecher.bc.ca>, 2023.
+# José Carvalho <jcarvalho@keep.pt>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-05-30 09:49+0000\n"
+"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
+"plugins/paperbuzz/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "plugins.generic.paperbuzz.displayName"
+msgstr "Plugin Paperbuzz"
+
+msgid "plugins.generic.paperbuzz.description"
+msgstr ""
+"Plugin para mostrar Métricas na página do trabalho. As revistas que não "
+"tenham DOIs apenas poderão apresentar os downoalds."
+
+msgid "plugins.generic.paperbuzz.metrics"
+msgstr "Métricas"
+
+msgid "plugins.generic.paperbuzz.loading"
+msgstr "A carregar métricas ..."
+
+msgid "plugins.generic.paperbuzz.settings"
+msgstr "Configurações"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail"
+msgstr "E-mail"
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
+msgstr "Deve fornecer um endereço de e-mail para usar o serviço Paperbuzz."
+
+msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
+msgstr "O e-mail é obrigatório."
+
+msgid "plugins.generic.paperbuzz.settings.graph.description"
+msgstr ""
+"Exibir gráfico com a linha do tempo (maior) ou apenas o somatório (menor)"
+
+msgid "plugins.generic.paperbuzz.settings.showGraph"
+msgstr "Mostrar gráficos"
+
+msgid "plugins.generic.paperbuzz.settings.showMini"
+msgstr "Mostrar compacto"
+
+msgid "plugins.generic.paperbuzz.settings.downloads"
+msgstr "Downloads"
+
+msgid "plugins.generic.paperbuzz.settings.hideDownloads"
+msgstr "Ocultar downloads (exibir apenas as métricas do Paperbuzz)."
+
+msgid "plugins.generic.paperbuzz.sourceName.fileDownloads"
+msgstr "Download de ficheiros"
