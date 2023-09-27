@@ -351,17 +351,20 @@ class PaperbuzzPlugin extends GenericPlugin {
 			// Consider only the first 30 days after the article publication
 			$datePublished = $this->_article->getDatePublished();
 			if (empty($datePublished)) {
+				$publication = $this->_article->getCurrentPublication();
 				$issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
-				$issue = $issueDao->getById($this->_article->getIssueId());
-				$datePublished = $issue->getDatePublished();
+				$issue = $issueDao->getById($publication->getData('issueId'));
+				if ($issue) $datePublished = $issue->getDatePublished();
 			}
-			$startDate = date('Ymd', strtotime($datePublished));
-			$endDate = date('Ymd', strtotime('+30 days', strtotime($datePublished)));
-			// This would be for the last 30 days:
-			//$startDate = date('Ymd', strtotime('-30 days'));
-			//$endDate = date('Ymd');
-			$filter[STATISTICS_DIMENSION_DAY]['from'] = $startDate;
-			$filter[STATISTICS_DIMENSION_DAY]['to'] = $endDate;
+			if ($datePublished) {
+				$startDate = date('Ymd', strtotime($datePublished));
+				$endDate = date('Ymd', strtotime('+30 days', strtotime($datePublished)));
+				// This would be for the last 30 days:
+				//$startDate = date('Ymd', strtotime('-30 days'));
+				//$endDate = date('Ymd');
+				$filter[STATISTICS_DIMENSION_DAY]['from'] = $startDate;
+				$filter[STATISTICS_DIMENSION_DAY]['to'] = $endDate;
+			}
 		}
 
 		return $metricsDao->getMetrics($metricTypes, $columns, $filter, $orderBy);
