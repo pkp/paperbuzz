@@ -166,6 +166,9 @@ class PaperbuzzPlugin extends GenericPlugin {
 		$this->_article = $preprint;
 
 		$publishedPublications = (array) $preprint->getPublishedPublications();
+		if (empty($publishedPublications)) {
+			return false;
+		}
 		$firstPublication = reset($publishedPublications);
 
 		$request = $this->getRequest();
@@ -209,6 +212,9 @@ class PaperbuzzPlugin extends GenericPlugin {
 		$this->_article = $article;
 
 		$publishedPublications = (array) $article->getPublishedPublications();
+		if (empty($publishedPublications)) {
+			return false;
+		}
 		$firstPublication = reset($publishedPublications);
 
 		$request = $this->getRequest();
