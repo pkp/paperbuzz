@@ -1,16 +1,16 @@
+# Aysa Ekanger <aysa.ekanger@uit.no>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-28 11:53+0000\n"
-"Last-Translator: FRITT, University of Oslo Library <fritt-info@journals.uio."
-"no>\n"
+"PO-Revision-Date: 2024-06-12 10:58+0000\n"
+"Last-Translator: Aysa Ekanger <aysa.ekanger@uit.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "plugins/paperbuzz/nb_NO/>\n"
-"Language: nb_NO\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "Skjul nedlastinger av artikler (vis bare statistikk fra Paperbuzz)."
@@ -24,16 +24,16 @@ msgstr "Vis komprimert"
 msgid "plugins.generic.paperbuzz.settings.showGraph"
 msgstr "Vis grafer"
 
+#, fuzzy
 msgid "plugins.generic.paperbuzz.settings.graph.description"
 msgstr ""
-"Vis grafer som viser tidslinjer over bruk (større) eller bare antallet "
-"(mindre)"
+"Vis grafer som viser tidslinjer over bruk (større) eller bare tall (mindre)"
 
 msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
-msgstr "Du må fylle inn en e-post."
+msgstr "Du må fylle inn en epost."
 
 msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
-msgstr "Du må angi en e-post for å bruke Paperbuzz-tjenesten."
+msgstr "Du må angi en epost for å bruke Paperbuzz-tjenesten."
 
 msgid "plugins.generic.paperbuzz.settings.apiEmail"
 msgstr "E-post"
@@ -63,3 +63,6 @@ msgstr "HTML-visninger"
 
 msgid "plugins.generic.paperbuzz.sourceName.pdf"
 msgstr "PDF-visninger"
+
+msgid "plugins.generic.paperbuzz.sourceName.fileDownloads"
+msgstr "Filnedlastinger"

@@ -1,15 +1,16 @@
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-27 01:22+0000\n"
-"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"PO-Revision-Date: 2023-03-30 07:48+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/plugins/"
-"paperbuzz/da_DK/>\n"
-"Language: da_DK\n"
+"paperbuzz/da/>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr "Skjul download af artikler (vis kun metrik fra Paperbuzz)."
@@ -53,3 +54,6 @@ msgstr ""
 
 msgid "plugins.generic.paperbuzz.displayName"
 msgstr "Paperbuzz Plugin"
+
+msgid "plugins.generic.paperbuzz.sourceName.fileDownloads"
+msgstr "Fil downloades"
