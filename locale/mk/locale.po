@@ -1,8 +1,9 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-15 10:48+0000\n"
-"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
+"PO-Revision-Date: 2024-11-16 07:40+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/plugins/"
 "paperbuzz/mk/>\n"
 "Language: mk\n"
@@ -10,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "plugins.generic.paperbuzz.settings.hideDownloads"
 msgstr ""
@@ -31,7 +32,7 @@ msgstr ""
 "или само броењето (помали)"
 
 msgid "plugins.generic.paperbuzz.settings.apiEmail.required"
-msgstr "Потребна е е-пошта."
+msgstr "Потребна е имејл."
 
 msgid "plugins.generic.paperbuzz.settings.apiEmail.description"
 msgstr ""
@@ -39,7 +40,7 @@ msgstr ""
 "Paperbuzz."
 
 msgid "plugins.generic.paperbuzz.settings.apiEmail"
-msgstr "Е-пошта"
+msgstr "Имејл"
 
 msgid "plugins.generic.paperbuzz.settings"
 msgstr "Поставки"
